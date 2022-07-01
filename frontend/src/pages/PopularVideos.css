@@ -1,0 +1,23 @@
+.subTitle{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    /* identical to box height */
+
+   
+    color: #000000;
+
+    
+
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-column: 1 / span 12;
+    grid-row: 1;
+}
