@@ -5,12 +5,7 @@
     font-size: 50px;
     line-height: 61px;
     /* identical to box height */
-
-   
     color: #000000;
-
-    
-
 }
 
 .titleContainer {
@@ -20,4 +15,60 @@
 
     grid-column: 1 / span 12;
     grid-row: 1;
+}
+
+.selectCountry{
+    grid-column: 8 / span 4;
+    grid-row: 2;
+}
+
+.mainVideo{
+    grid-column: 1 / span 8;
+    grid-row: 5 / span 4;
+}
+
+.mainVideoTitle{
+    grid-column: 9 / span 4;
+    grid-row: 5;
+
+    
+font-family: 'Inter';
+font-style: normal;
+font-size: x-large;
+
+color: #3C3C3C;
+}
+
+.mainVideoAuthor{
+    padding: 0px;
+    grid-column: 9 / span 4;
+    grid-row: 6;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: large;
+
+    color: #3C3C3C;
+}
+
+.mainVideoViews{
+    grid-column: 9 / span 4;
+    grid-row: 7;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: medium;
+
+    color: #3C3C3C;
+}
+
+.mainVideoDescription{
+    grid-column: 9 / span 4;
+    grid-row: 8;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: medium;
+
+    color: #3C3C3C;
 }

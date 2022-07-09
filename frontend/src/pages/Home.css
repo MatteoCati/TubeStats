@@ -5,7 +5,7 @@
 }
 
 .topchanbtn{
-    grid-column: col-start 10/ span 2;
+    grid-column: col-start 10/ span 3;
     grid-row: 7;
 
     border-radius: 10px;
