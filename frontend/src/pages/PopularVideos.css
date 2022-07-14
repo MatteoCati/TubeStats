@@ -32,11 +32,11 @@
     grid-row: 5;
 
     
-font-family: 'Inter';
-font-style: normal;
-font-size: x-large;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: x-large;
 
-color: #3C3C3C;
+    color: #3C3C3C;
 }
 
 .mainVideoAuthor{
@@ -72,3 +72,12 @@ color: #3C3C3C;
 
     color: #3C3C3C;
 }
+
+.videosCarousel {
+    grid-row: 10;
+    grid-column: 1 / span 12;
+}
+
+.carouselItem{
+    padding-right: 10px;
+}  

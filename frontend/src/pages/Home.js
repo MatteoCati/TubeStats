@@ -24,9 +24,10 @@ const Home = () => {
                 <img src="Top_Channel_Img.svg" className="trandingimg" alt="A podium with the youtube symbol"/>
                 <p className="trandingtext text">Look what is tranding<br/>in any country of the World!</p>
                 <button type="button" onClick={() => navigate("/popular-videos")} className="button trandingbtn">Go!</button>
-            </div> 
-        </>
-    )
-}
+            </div>
+		</>
+	);
+};
+
 
 export default Home;
