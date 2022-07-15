@@ -4,7 +4,7 @@ import YoutubeEmbed from "../components/Videoembed";
 import "./PopularVideos.css";
 import React from "react";
 
-import { formatNumber } from "../utils"
+import { formatNumber, truncateText } from "../utils"
 
 
 const PopularVideos = () => {
@@ -58,7 +58,7 @@ const PopularVideos = () => {
 					<div className="mainVideoTitle">{videos[0].snippet.title}</div>
 					<div className="mainVideoAuthor">{videos[0].snippet.channelTitle}</div>
 					<div className="mainVideoViews">{formatNumber(videos[0].statistics.viewCount)} views</div>
-					<div className="mainVideoDescription">{videos[0].snippet.localized.description.substr(0, 128)}...</div>
+					<div className="mainVideoDescription">{truncateText(videos[0].snippet.localized.description, 128)}...</div>
 					
 					{videos.slice(1, videos.length).map((video, key) => { 
 						return (
