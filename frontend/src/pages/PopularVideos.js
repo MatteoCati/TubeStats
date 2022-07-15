@@ -4,31 +4,13 @@ import YoutubeEmbed from "../components/Videoembed";
 import "./PopularVideos.css";
 import React from "react";
 
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { formatNumber } from "../utils"
+
 
 const PopularVideos = () => {
-	const [country, setCountry] = useState([]);
+	const [country, setCountry] = useState(["US", "United States of America"]);
 	const [videos, setVideos] = useState([]);
 	const countryList = require("./countryCode.json");
-
-	const responsive = {
-		desktop: {
-			breakpoint: { max: 3000, min: 1024 },
-			items: 3,
-			slidesToSlide: 3 // optional, default to 1.
-		},
-		tablet: {
-			breakpoint: { max: 1024, min: 464 },
-			items: 2,
-			slidesToSlide: 2 // optional, default to 1.
-		},
-		mobile: {
-			breakpoint: { max: 464, min: 0 },
-			items: 1,
-			slidesToSlide: 1 // optional, default to 1.
-		}
-	};
     
 	useEffect(() => {
 		
@@ -75,25 +57,20 @@ const PopularVideos = () => {
 					<YoutubeEmbed embedId={videos[0].id} className="mainVideo" />
 					<div className="mainVideoTitle">{videos[0].snippet.title}</div>
 					<div className="mainVideoAuthor">{videos[0].snippet.channelTitle}</div>
-					<div className="mainVideoViews">{videos[0].statistics.viewCount} views</div>
+					<div className="mainVideoViews">{formatNumber(videos[0].statistics.viewCount)} views</div>
 					<div className="mainVideoDescription">{videos[0].snippet.localized.description.substr(0, 128)}...</div>
-						<Carousel
-							responsive={responsive}
-							infinite={false}
-							itemClass="carouselItem"
-							containerClass="videosCarousel"
-							slidesToSlide={2}
-						>
-							{videos.map(video => { 
-								return (
-								<div key={video.id}>
-									<YoutubeEmbed embedId={video.id} className="mainVideo" />
-									<div>{video.snippet.title}</div>
-									<div>{video.statistics.viewCount} views</div>
-								</div>
-								)}
-							)}
-						</Carousel>
+					
+					{videos.slice(1, videos.length).map((video, key) => { 
+						return (
+							<>
+								<span style={{gridRow: (10+key*3).toString()}} className="videoListCounter"><strong>{key+2}.</strong></span>
+								<YoutubeEmbed embedId={video.id} className="videoListItem"  style={{gridRow: (10+key*3).toString()+" / span 3"}}/>
+								<span style={{gridRow: (10+key*3).toString()}} className="videoListText">{video.snippet.title}</span>
+								<span style={{gridRow: (11+key*3).toString()}} className="videoListText">{formatNumber(video.statistics.viewCount)} views</span>
+							</>
+						)}
+					)}
+					
 				</>
 				:
 				<div></div>

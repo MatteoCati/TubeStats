@@ -31,7 +31,6 @@
     grid-column: 9 / span 4;
     grid-row: 5;
 
-    
     font-family: 'Inter';
     font-style: normal;
     font-size: x-large;
@@ -73,11 +72,14 @@
     color: #3C3C3C;
 }
 
-.videosCarousel {
-    grid-row: 10;
-    grid-column: 1 / span 12;
+.videoListCounter{
+    grid-column: 1;
 }
 
-.carouselItem{
-    padding-right: 10px;
-}  
+.videoListItem {
+    grid-column: 2 / span 4;
+}
+
+.videoListText {
+    grid-column: 6 / span 8;
+}

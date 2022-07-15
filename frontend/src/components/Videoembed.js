@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const YoutubeEmbed = ({ embedId, className }) => {
-	return <div className={className} style={{paddingBottom: "56.25%", position: "relative"}}>
+const YoutubeEmbed = ({ embedId, className, style }) => {
+	return <div className={className} style={{...style, paddingBottom: "56.25%", position: "relative"}}>
 		<iframe
 			src={`https://www.youtube.com/embed/${embedId}`}
 			style={{width: "100%", height: "100%", position: "absolute", top: "0px", left: "0px"}}
@@ -12,11 +11,6 @@ const YoutubeEmbed = ({ embedId, className }) => {
 			title="Embedded youtube"
 		/>
 	</div>;
-};
-
-YoutubeEmbed.propTypes = {
-	embedId: PropTypes.string.isRequired,
-	className: PropTypes.string,
 };
 
 
