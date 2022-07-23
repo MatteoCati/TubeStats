@@ -66,7 +66,10 @@ const PopularVideos = () => {
 								<span style={{gridRow: (10+key*3).toString()}} className="videoListCounter"><strong>{key+2}.</strong></span>
 								<YoutubeEmbed embedId={video.id} className="videoListItem"  style={{gridRow: (10+key*3).toString()+" / span 3"}}/>
 								<span style={{gridRow: (10+key*3).toString()}} className="videoListText">{video.snippet.title}</span>
-								<span style={{gridRow: (11+key*3).toString()}} className="videoListText">{formatNumber(video.statistics.viewCount)} views</span>
+								<span style={{gridRow: (11+key*3).toString()}} className="videoListText">
+									{video.snippet.channelTitle}<br/>
+									{formatNumber(video.statistics.viewCount)} views
+								</span>
 							</>
 						)}
 					)}
