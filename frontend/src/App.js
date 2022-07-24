@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import PopularVideos from './pages/PopularVideos';
 
+import "./App.css"
+
 function App() {
   return (
     <div className="App">

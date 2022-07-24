@@ -7,8 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
 .pages{
   /* 12 columns layout */
   display: grid;
@@ -20,7 +18,4 @@ body {
   /* Align to the center */
   margin-left: 50%;
   transform: translate(-50%, 0%);
-
-
-  /*background-color: aqua;*/
 }
