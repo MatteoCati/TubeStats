@@ -5,6 +5,7 @@ import "./PopularVideos.css";
 import React from "react";
 
 import { formatNumber, truncateText } from "../utils"
+import Loader from "../components/Loader";
 
 
 const PopularVideos = () => {
@@ -40,7 +41,7 @@ const PopularVideos = () => {
 	}, [country]);
 
 	const handleChange = (event) => {
-		console.log(event.target.value);
+		setVideos([])
 		setCountry(JSON.parse(event.target.value));
 	};
 
@@ -78,7 +79,9 @@ const PopularVideos = () => {
 					
 				</>
 				:
-				<div></div>
+				<div className="spinnerContainer">
+					<Loader/>
+				</div>
 			}
 		</div>
 		</>
