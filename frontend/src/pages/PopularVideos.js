@@ -10,7 +10,7 @@ import { formatNumber, truncateText } from "../utils"
 const PopularVideos = () => {
 	const [country, setCountry] = useState(["US", "United States of America"]);
 	const [videos, setVideos] = useState([]);
-	const countryList = require("./countryCode.json");
+	const countryList = require("./countryCode.json").sort();
     
 	useEffect(() => {
 		
@@ -45,8 +45,10 @@ const PopularVideos = () => {
 	};
 
 	return (
+		<>
+		<div className="titleContainer"><p className="subTitle">Popular Videos in {country[1]}</p> </div>
 		<div className="pages">
-			<div className="titleContainer"><p className="subTitle">Popular Videos in {country[1]}</p> </div>
+			
 			<select className="selectCountry" onChange={handleChange} value={JSON.stringify(country)} >
 				{countryList.map(l => 
 					<option key={l[0]} value={JSON.stringify(l)}>{l[1]}</option>)}
@@ -79,6 +81,7 @@ const PopularVideos = () => {
 				<div></div>
 			}
 		</div>
+		</>
 	);
 };
 

@@ -6,6 +6,7 @@
     line-height: 61px;
     /* identical to box height */
     color: #000000;
+    margin-bottom: 0px;
 }
 
 .titleContainer {
@@ -18,7 +19,7 @@
 }
 
 .selectCountry{
-    grid-column: 8 / span 4;
+    grid-column: 7 / span 5;
     grid-row: 2;
 }
 
@@ -82,4 +83,9 @@
 
 .videoListText {
     grid-column: 6 / span 8;
+}
+select {
+    border: none;
+    text-decoration: underline;
+    font-size: 20px;
 }
