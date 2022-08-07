@@ -12,25 +12,23 @@ const PopularVideos = () => {
 	const [country, setCountry] = useState(["US", "United States of America"]);
 	const [videos, setVideos] = useState([]);
 	const countryList = require("./countryCode.json").sort();
-    
+   
 	useEffect(() => {
 		
 			fetch("https://ipapi.co/json/")
 			.then( res => res.json())
 			.then(response => {
-				setCountry(countryList.find(x => x[0] === response.country));
+				setCountry(countryList.find(x => x[0] === response.country));	
 			})
 			.catch((a, b) => {
-
 				setCountry(["US", "United States of America"]);
 			});
-		
-		
+			
 	}, [countryList]);
     
 	useEffect(() => {
 		if(country.length > 0) {
-			fetch('/api/popular-videos/'+country[0])
+			fetch(process.env.REACT_APP_BACKEND_HOST+'/api/popular-videos/'+country[0])
 				.then( res =>res.json() )
 				.then(response => {
 					setVideos(response);

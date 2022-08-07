@@ -19,9 +19,9 @@ const TopChannelRow = ({channelInfo, position}) => {
 
 const TopChannels = () => {
     const [channelsList, setChannelsList] = useState([])
-
+    
     useEffect(() => {
-        fetch('/api/top-channels')
+        fetch(process.env.REACT_APP_BACKEND_HOST+'/api/top-channels')
         .then(res => res.json())
         .then(data => {
             setChannelsList(data)
