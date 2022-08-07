@@ -33,7 +33,6 @@ const PopularVideos = () => {
 			fetch('/popular-videos/'+country[0])
 				.then( res =>res.json() )
 				.then(response => {
-					console.log(response)
 					setVideos(response);
 				})
 		}

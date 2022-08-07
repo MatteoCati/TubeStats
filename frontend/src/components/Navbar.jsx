@@ -6,7 +6,6 @@ const Navbar = ({ loggedIn }) => {
 
     const location = useLocation()
     
-
     return (
         <header className ="navbar">
             <div className="container">
