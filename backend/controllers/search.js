@@ -1,12 +1,14 @@
 const { setParams } = require('./utils')
+const axios = require('axios')
 
 const searchChannels = async (req, res) => {
     const channelName = req.query.key
 
-    const params = setParams(
-        ['snippet'],
-        [('type', 'channel'), ('maxResults', 10), ('q', channelName)]
-    )
+    const params = setParams(['snippet'], {
+        type: 'channel',
+        maxResults: 10,
+        q: channelName,
+    })
 
     const response = await axios.get(
         'https://www.googleapis.com/youtube/v3/search',
@@ -30,7 +32,9 @@ const getVideosDetailsFromIdArray = async (ids) => {
                 'player',
                 'recordingDetails',
             ],
-            [('id', id.videoId)]
+            {
+                id: id.videoIs,
+            }
         )
 
         const video = await axios.get(
@@ -58,44 +62,38 @@ const getChannelDetails = async (req, res) => {
             'status',
             'topicDetails',
         ],
-        [('id', channelId)]
+        { id: channelId }
     )
-
+    console.log('First')
     const info = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/channels',
         { infoParams }
     )
-
-    const popularVideosIdsParams = setParams(
-        ['id'],
-        [
-            ('channelId', channelId),
-            ('maxResults', 10),
-            ('order', 'viewCount'),
-            ('type', 'video'),
-        ]
-    )
+    console.log('Seccond')
+    const popularVideosIdsParams = setParams(['id'], {
+        channelId,
+        maxResults: 10,
+        order: 'viewCount',
+        type: 'video',
+    })
 
     const popularVideosIds = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/search',
         { popularVideosIdsParams }
     )
 
-    const recentVideosIdsParams = setParams(
-        ['id'],
-        [
-            ('channelId', channelId),
-            ('maxResults', 1),
-            ('order', 'date'),
-            ('type', 'video'),
-        ]
-    )
+    const recentVideosIdsParams = setParams(['id'], {
+        channelId,
+        maxResults: 10,
+        order: 'date',
+        type: 'video',
+    })
 
     const recentVideosIds = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/search',
         { params }
     )
-
+    console.log('Test')
     res.json({
         info: info.data.items[0],
         popular: await getVideosDetailsFromIdArray(popularVideosIds),
