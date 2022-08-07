@@ -2,7 +2,13 @@ const { setParams } = require('./utils')
 const axios = require('axios')
 
 const searchChannels = async (req, res) => {
-    const channelName = req.query.key
+    // Used stored json data instead of loading from youtube
+    if (process.env.ENV_TYPE === 'offline') {
+        const searchResults = require('../searchResults.json')
+        res.json(searchResults)
+        return
+    }
+    let channelName = req.query.key || ''
 
     const params = setParams(['snippet'], {
         type: 'channel',
@@ -17,8 +23,8 @@ const searchChannels = async (req, res) => {
     res.json(response.data.items)
 }
 
-const getVideosDetailsFromIdArray = async (ids) => {
-    const videos = ids.map(async ({ id }) => {
+const getVideosDetailsFromIdArray = async (videoInfos) => {
+    const videos = videoInfos.map(async ({ id }) => {
         const params = setParams(
             [
                 'snippet',
@@ -33,7 +39,7 @@ const getVideosDetailsFromIdArray = async (ids) => {
                 'recordingDetails',
             ],
             {
-                id: id.videoIs,
+                id: id.videoId,
             }
         )
 
@@ -48,6 +54,13 @@ const getVideosDetailsFromIdArray = async (ids) => {
 }
 
 const getChannelDetails = async (req, res) => {
+    // Used stored json data instead of loading from youtube
+    if (process.env.ENV_TYPE === 'offline') {
+        const searchResults = require('../searchChannel.json')
+        res.json(searchResults)
+        return
+    }
+
     const channelId = req.params.id
 
     const infoParams = setParams(
@@ -64,12 +77,11 @@ const getChannelDetails = async (req, res) => {
         ],
         { id: channelId }
     )
-    console.log('First')
     const info = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/channels',
-        { infoParams }
+        { params: infoParams }
     )
-    console.log('Seccond')
+
     const popularVideosIdsParams = setParams(['id'], {
         channelId,
         maxResults: 10,
@@ -79,7 +91,7 @@ const getChannelDetails = async (req, res) => {
 
     const popularVideosIds = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/search',
-        { popularVideosIdsParams }
+        { params: popularVideosIdsParams }
     )
 
     const recentVideosIdsParams = setParams(['id'], {
@@ -91,13 +103,15 @@ const getChannelDetails = async (req, res) => {
 
     const recentVideosIds = await axios.get(
         'https://youtube.googleapis.com/youtube/v3/search',
-        { params }
+        { params: recentVideosIdsParams }
     )
-    console.log('Test')
+
+    console.log(popularVideosIds.data.items)
+
     res.json({
         info: info.data.items[0],
-        popular: await getVideosDetailsFromIdArray(popularVideosIds),
-        recent: await getVideosDetailsFromIdArray(recentVideosIds),
+        popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
+        recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
     })
 }
 
