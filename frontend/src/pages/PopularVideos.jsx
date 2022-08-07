@@ -30,7 +30,7 @@ const PopularVideos = () => {
     
 	useEffect(() => {
 		if(country.length > 0) {
-			fetch('/popular-videos/'+country[0])
+			fetch('/api/popular-videos/'+country[0])
 				.then( res =>res.json() )
 				.then(response => {
 					setVideos(response);
