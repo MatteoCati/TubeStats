@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from '../components/Loader';
 import { formatNumber } from "../utils";
 
@@ -10,7 +10,7 @@ const TopChannelRow = ({channelInfo, position}) => {
             <div className={"channelName"}>
             <p className="number">{position}.</p>
             <img alt="Channel avatar" src={channelInfo.thumbnail.url} className="avatar"/>
-            <a href={channelInfo.url}  target="_blank" rel="noreferrer">{channelInfo.title}</a>
+            <a href={channelInfo.url}  target="_blank" rel="noopener noreferrer">{channelInfo.title}</a>
             </div>
             <p>{formatNumber(channelInfo.subscribers)} subscribers</p>
         </div>

@@ -1,8 +1,7 @@
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import YoutubeEmbed from "../components/Videoembed";
 import "./PopularVideos.css";
-import React from "react";
 
 import { formatNumber, truncateText } from "../utils"
 import Loader from "../components/Loader";

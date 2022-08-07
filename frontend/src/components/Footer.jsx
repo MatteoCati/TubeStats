@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Footer = () => {
     return (
         <div style={{height: "250px", width: "100%", backgroundImage: "url('/BottomBackground.svg')", backgroundRepeat: 'no-repeat', backgroundSize: "cover",
