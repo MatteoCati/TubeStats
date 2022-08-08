@@ -1,20 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./SearchChannel.css";
-import SearchIcon from "../svgs/search-icon.svg";
+
 import { Link } from 'react-router-dom'
+import SearchBar from '../components/SearchBar'
 
-const SearchChannel = () => {
-
-    const [searchValue, setSearchValue] = useState('');
+const SearchChannel = ({searchHook}) => {
     const [channelList, setChannelList] = useState([]);
     const [searchDone, setSearchDone] = useState(false);
     const [loading, setLoading] = useState(false)
-    console.log(channelList)
-    const handleChange = ({target}) => {
-        setSearchValue(target.value)
-    } 
 
-    const handleSearch = () => {
+    const handleSearch = (searchValue) => {
         if(loading) return
         setLoading(true)
         fetch('/api/search?key='+searchValue)
@@ -30,26 +25,19 @@ const SearchChannel = () => {
         setSearchDone(true)
     }
 
-    const handleEnter = (ev) => {
-        if(ev.keyCode === 13) handleSearch()
-    }
+    useEffect(() => {
+        const [searchValue, setSearchValue] = searchHook
+        if(searchValue){
+            handleSearch(searchValue)
+        }
+    }, [])
 
     const showNoResultMessage = channelList.length === 0 && searchDone && !loading
     const showStartSearchMessage = channelList.length === 0 && !searchDone && !loading
 
     return (
         <div className="pages">
-            <div className="searchBarContainer">
-                <input 
-                    type="text" 
-                    placeholder="Search Channel..." 
-                    className="searchBar" 
-                    onChange={handleChange} 
-                    value={searchValue}
-                    onKeyDown={handleEnter}
-                />
-                <img  onClick={handleSearch} src={SearchIcon} alt="" className="searchIcon"/>
-            </div>
+            <SearchBar handleSearch={handleSearch} searchHook={searchHook} containerClass="searchBarPosition"/>
             {channelList.length > 0 && channelList.map(({snippet}, idx) => (
                 <Link style={{gridRow: idx+2}} key={snippet.channelId} className="searchResultContainer" to={'/search/'+snippet.channelId}>
                     <img alt="Channel avatar" src={snippet.thumbnails.default.url} className="avatar"/>
