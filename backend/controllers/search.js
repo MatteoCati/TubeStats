@@ -26,23 +26,9 @@ const searchChannels = async (req, res) => {
 
 const getVideosDetailsFromIdArray = async (videoInfos) => {
     const videos = videoInfos.map(async ({ id }) => {
-        const params = setParams(
-            [
-                'snippet',
-                'contentDetails',
-                'id',
-                'localizations',
-                'statistics',
-                'topicDetails',
-                'status',
-                'liveStreamingDetails',
-                'player',
-                'recordingDetails',
-            ],
-            {
-                id: id.videoId,
-            }
-        )
+        const params = setParams(['snippet', 'contentDetails', 'statistics'], {
+            id: id.videoId,
+        })
 
         const video = await axios.get(
             'https://youtube.googleapis.com/youtube/v3/videos',
@@ -51,7 +37,17 @@ const getVideosDetailsFromIdArray = async (videoInfos) => {
 
         return video.data.items[0]
     })
-    return await Promise.all(videos)
+    const resloved = await Promise.all(videos)
+
+    return resolved.map((x, idx) => ({
+        title: x.snippet.title,
+        publishedAt: x.snippet.publishedAt,
+        id: videoInfos[idx].id.videoId,
+        duration: moment.duration(x.contentDetails.duration).asSeconds(),
+        viewCount: x.statistics.viewCount,
+        commentCount: x.statistics.commentCount,
+        likeCount: x.statistics.likeCount,
+    }))
 }
 
 const getChannelDetails = async (req, res) => {
@@ -107,24 +103,10 @@ const getChannelDetails = async (req, res) => {
         { params: recentVideosIdsParams }
     )
 
-    const recentVideos = await getVideosDetailsFromIdArray(
-        recentVideosIds.data.items
-    )
-
-    const recentVideosFormatted = recentVideos.map((x) => ({
-        title: x.snippet.title,
-        publishedAt: x.snippet.publishedAt,
-        id: x.id,
-        duration: moment.duration(x.contentDetails.duration).asSeconds(),
-        viewCount: x.statistics.viewCount,
-        commentCount: x.statistics.commentCount,
-        likeCount: x.statistics.likeCount,
-    }))
-
     res.json({
         info: info.data.items[0],
         popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
-        recent: recentVideosFormatted,
+        recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
     })
 }
 

@@ -36,6 +36,7 @@ const ChannelStatsPage = () => {
                 <p className='viewsCount'>Views: {formatNumber(channelData.info.statistics.viewCount)}</p>
                 <p className='videosCount'>Published Videos: {formatNumber(channelData.info.statistics.videoCount)}</p>
                 <VideosPlot videosList={channelData.recent} className="recentSection" title="Most Recent Videos"/>
+                <VideosPlot videosList={channelData.popular} className="popularSection" title="Most Viewed Videos"/>
             </div>
         </>
     )
