@@ -39,3 +39,21 @@ export const truncateText = (text, length) => {
 
     return truncatedText
 }
+
+export const formatDuration = (duration) => {
+    const hours = Math.floor(duration / 3600)
+    const left = duration - hours * 3600
+    const minutes = Math.floor(left / 60)
+    console.log(minutes)
+    const seconds = left - minutes * 60
+    let result = ':' + (seconds < 10 ? '0' : '') + seconds
+    //console.log(result)
+    result =
+        hours > 0
+            ? minutes < 10
+                ? hours + ':0' + minutes + result
+                : hours + ':' + minutes + result
+            : minutes + result
+    console.log(duration, result)
+    return result
+}

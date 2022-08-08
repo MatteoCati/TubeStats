@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
-import { formatDate } from '../utils';
+import { formatDate, formatDuration, formatNumber } from '../utils';
 
 import './RecentVideos.css'
 
-const RecentVideos = ({ recentVideos, className }) => {
+const RecentVideos = ({ videosList, className, title }) => {
     const [key, setKey] = useState('viewCount')
 
     const keysList = [
         ["Views", "viewCount"],
         ["Likes", "likeCount"],
         ["Comments", "commentCount"],
+        ["Duration", "duration"]
     ]
 
     const handleChange = (ev) => {
@@ -22,11 +23,17 @@ const RecentVideos = ({ recentVideos, className }) => {
         ? "views"
         : key === 'likeCount'
         ? "likes"
+        : "duration"
+        ? "minutes"
         : "comments"
+
+    const customDataFormatter = key === 'duration'
+        ? formatDuration
+        : formatNumber
 
     return (
         <div className={className+" container"}> 
-            <p className="sectionTitle">Most Recent Videos</p>
+            <p className="sectionTitle">{title}</p>
             <div className="selectContainer">
                 <p className='selectText'>Plot by: </p>
                 <select onChange={handleChange} value={key} >
@@ -40,10 +47,11 @@ const RecentVideos = ({ recentVideos, className }) => {
                 data={[
                 {
                     type: 'bar', 
-                    x: recentVideos.map(x => formatDate(x.publishedAt)).reverse(), 
-                    y: recentVideos.map(x => x[key]).reverse(),
-                    hovertext: recentVideos.map(x => x.title).reverse(),
-                    hovertemplate: '%{hovertext} <br> %{y} '+valueText+' - %{x}<extra></extra>'
+                    x: videosList.map(x => formatDate(x.publishedAt)).reverse(), 
+                    y: videosList.map(x => x[key]).reverse(),
+                    hovertext: videosList.map(x => x.title).reverse(),
+                    customdata: videosList.map(x => customDataFormatter(x[key])).reverse(),
+                    hovertemplate: '%{hovertext} <br>%{customdata} '+valueText+' - %{x}<extra></extra>'
                 },
                 ]}
             /> 
