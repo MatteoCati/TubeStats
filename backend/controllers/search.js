@@ -106,8 +106,6 @@ const getChannelDetails = async (req, res) => {
         { params: recentVideosIdsParams }
     )
 
-    console.log(popularVideosIds.data.items)
-
     res.json({
         info: info.data.items[0],
         popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),

@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import PopularVideos from './pages/PopularVideos'
 import TopChannels from './pages/TopChannels'
 import SearchChannel from './pages/SearchChannel'
+import ChannelStatsPage from './pages/ChannelStats'
 
 import './App.css'
 
@@ -24,6 +25,10 @@ function App() {
                         />
                         <Route path='/top-channels' element={<TopChannels />} />
                         <Route path='/search' element={<SearchChannel />} />
+                        <Route
+                            path='/search/:id'
+                            element={<ChannelStatsPage />}
+                        />
                     </Routes>
                 </div>
                 <Footer />
