@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
-import { formatDate, formatDuration } from '../utils';
+import { formatDate } from '../utils';
 
 import './RecentVideos.css'
 
