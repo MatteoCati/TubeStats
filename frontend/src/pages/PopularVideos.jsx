@@ -27,7 +27,7 @@ const PopularVideos = () => {
     
 	useEffect(() => {
 		if(country.length > 0) {
-			fetch(process.env.REACT_APP_BACKEND_HOST+'/api/popular-videos/'+country[0])
+			fetch('/api/popular-videos/'+country[0])
 				.then( res =>res.json() )
 				.then(response => {
 					setVideos(response);
