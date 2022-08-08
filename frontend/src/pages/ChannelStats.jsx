@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import RecentVideos from '../components/RecentVideos'
+import VideosPlot from '../components/VideosPlot'
 import { formatDate, formatNumber } from '../utils'
 
 import './ChannelStats.css'
@@ -35,7 +35,7 @@ const ChannelStatsPage = () => {
                 <p className='subscribersCount'>Subscribers: {subscribersCount}</p>
                 <p className='viewsCount'>Views: {formatNumber(channelData.info.statistics.viewCount)}</p>
                 <p className='videosCount'>Published Videos: {formatNumber(channelData.info.statistics.videoCount)}</p>
-                <RecentVideos videosList={channelData.recent} className="recentSection" title="Most Recent Videos"/>
+                <VideosPlot videosList={channelData.recent} className="recentSection" title="Most Recent Videos"/>
             </div>
         </>
     )

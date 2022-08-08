@@ -3,9 +3,9 @@ import Plot from 'react-plotly.js';
 
 import { formatDate, formatDuration, formatNumber } from '../utils';
 
-import './RecentVideos.css'
+import './VideosPlot.css'
 
-const RecentVideos = ({ videosList, className, title }) => {
+const VideosPlot = ({ videosList, className, title }) => {
     const [key, setKey] = useState('viewCount')
 
     const keysList = [
@@ -60,4 +60,4 @@ const RecentVideos = ({ videosList, className, title }) => {
     )
 }
 
-export default RecentVideos
+export default VideosPlot
