@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation }  from 'react-router-dom'
+import { ReactComponent as Logo } from '../svgs/logo.svg'
 
 import './Navbar.css'
 
@@ -11,7 +12,7 @@ const Navbar = ({ loggedIn }) => {
         <header className ="navbar">
             <div className="container">
                 <Link to="/" style={{display: "flex", flexDirection: "row", alignItems: "center"}}  className="blackLink">
-                    <img src="logo.svg" alt="logo"/>
+                    <Logo/>
                     <p className="logoText">TubeStats</p>
                 </Link>
                 <div className="menu"> 
