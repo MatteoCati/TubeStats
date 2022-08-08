@@ -26,7 +26,7 @@ const SearchChannel = ({searchHook}) => {
     }
 
     useEffect(() => {
-        const [searchValue, setSearchValue] = searchHook
+        const searchValue = searchHook[0]
         if(searchValue){
             handleSearch(searchValue)
         }

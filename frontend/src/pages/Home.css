@@ -21,15 +21,15 @@
     grid-row: 1 / span 4;
 }
 
-/* Tranding Videos Section CSS */
-.trandingtext {
+/* trending Videos Section CSS */
+.trendingtext {
     grid-column: col-start 2/ span 5;
-    grid-row: 9;
+    grid-row: 2;
 }
 
-.trandingbtn{
+.trendingbtn{
     grid-column: col-start 3/ span 2;
-    grid-row: 10;
+    grid-row: 3;
 
     border-radius: 10px;
     border: 2px solid;
@@ -39,12 +39,50 @@
     font-size: medium;
 }
 
-.trandingimg{
+.trendingimg{
     grid-column: col-start 7 / span 6;
-    grid-row: 8 / span 4;
+    grid-row: 1 / span 4;
     width: 340px;
     height: fit-content;
 }
+
+.trendingContainer{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.middleContainer {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: #a9d0f7;
+    padding: 100px 0px;
+}
+
+.searchtext {
+    grid-column: col-start 9/ span 5;
+    grid-row: 2;
+}
+
+.searchbtn{
+    grid-column: col-start 9/ span 4;
+    grid-row: 3;
+
+    border-radius: 10px;
+    border: 2px solid;
+    height: 4vh;
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+}
+
+.searchimg{
+    grid-column: col-start 2 / span 6;
+    grid-row: 1 / span 4;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
 
 
 /* Hero Section CSS */
