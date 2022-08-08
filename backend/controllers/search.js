@@ -1,5 +1,6 @@
 const { setParams } = require('./utils')
 const axios = require('axios')
+const moment = require('moment')
 
 const searchChannels = async (req, res) => {
     // Used stored json data instead of loading from youtube
@@ -114,7 +115,7 @@ const getChannelDetails = async (req, res) => {
         title: x.snippet.title,
         publishedAt: x.snippet.publishedAt,
         id: x.id,
-        duration: x.contentDetails.duration,
+        duration: moment.duration(x.contentDetails.duration).asSeconds(),
         viewCount: x.statistics.viewCount,
         commentCount: x.statistics.commentCount,
         likeCount: x.statistics.likeCount,

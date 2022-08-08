@@ -1,7 +1,7 @@
 {
     "info": {
         "kind": "youtube#channel",
-        "etag": "f6vQC2DafX4FIqBhmKANrg6ieRM",
+        "etag": "NtrRRpQ8rFLZt4XKrtfwbxdOl70",
         "id": "UCX6OQ3DkcsbYNE6H8uQQuVA",
         "snippet": {
             "title": "MrBeast",
@@ -44,14 +44,14 @@
         },
         "topicDetails": {
             "topicIds": [
-                "/m/02jjt",
+                "/m/07c1v",
                 "/m/019_rr",
-                "/m/07c1v"
+                "/m/02jjt"
             ],
             "topicCategories": [
-                "https://en.wikipedia.org/wiki/Entertainment",
+                "https://en.wikipedia.org/wiki/Technology",
                 "https://en.wikipedia.org/wiki/Lifestyle_(sociology)",
-                "https://en.wikipedia.org/wiki/Technology"
+                "https://en.wikipedia.org/wiki/Entertainment"
             ]
         },
         "status": {
@@ -77,7 +77,7 @@
     "popular": [
         {
             "kind": "youtube#video",
-            "etag": "B6LW9H_9EAab1qWmCqTV2u52BtM",
+            "etag": "Y6niPg_rFyH9mB1-WDtWddpah0E",
             "id": "0e3GPea1Tyg",
             "snippet": {
                 "publishedAt": "2021-11-24T21:00:01Z",
@@ -138,10 +138,10 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "279536711",
-                "likeCount": "14160566",
+                "viewCount": "279538662",
+                "likeCount": "14160605",
                 "favoriteCount": "0",
-                "commentCount": "611528"
+                "commentCount": "611529"
             },
             "player": {
                 "embedHtml": "<iframe width=\"480\" height=\"270\" src=\"//www.youtube.com/embed/0e3GPea1Tyg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
@@ -162,31 +162,31 @@
                     "title": "イカゲームを現実世界で再現してみた！",
                     "description": ""
                 },
-                "ar": {
-                    "title": "لعبة الحبار في الحياة الحقيقية مقابل 456,000 دولار",
-                    "description": ""
-                },
-                "fr": {
-                    "title": "Squid Game Dans La Vraie Vie Pour 456 000$",
+                "pt": {
+                    "title": "Round 6 na Vida Real! Valendo $456,000",
                     "description": ""
                 },
                 "hi": {
                     "title": "वास्तविक जीवन में $456,000 स्क्विड गेम!",
                     "description": ""
                 },
-                "ru": {
-                    "title": "Игра в Кальмара в Реальной Жизни на $456,000!",
+                "fr": {
+                    "title": "Squid Game Dans La Vraie Vie Pour 456 000$",
                     "description": ""
                 },
-                "pt": {
-                    "title": "Round 6 na Vida Real! Valendo $456,000",
+                "ar": {
+                    "title": "لعبة الحبار في الحياة الحقيقية مقابل 456,000 دولار",
+                    "description": ""
+                },
+                "ru": {
+                    "title": "Игра в Кальмара в Реальной Жизни на $456,000!",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "ygZTWdCWs0S0RDFewIZcOKYNw2I",
+            "etag": "nZjzTnUt3KeqD9ycaDDa7nUqKxo",
             "id": "r7zJ8srwwjk",
             "snippet": {
                 "publishedAt": "2020-05-30T20:10:08Z",
@@ -247,8 +247,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "189198291",
-                "likeCount": "3500338",
+                "viewCount": "189199038",
+                "likeCount": "3500355",
                 "favoriteCount": "0",
                 "commentCount": "110956"
             },
@@ -263,39 +263,39 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "pt": {
-                    "title": "Passei 50 Horas na Solitária!",
-                    "description": ""
-                },
-                "fr": {
-                    "title": "J'ai Passé 50 Heures En Isolement.",
+                "ar": {
+                    "title": "قضيت 50 ساعة في الحبس الانفرادي",
                     "description": ""
                 },
                 "hi": {
                     "title": "मैंने एकांत कारावास में 50 घंटे बिताए",
                     "description": ""
                 },
-                "es": {
-                    "title": "Estuve 50 horas en Confinamiento Solitario",
+                "ru": {
+                    "title": "Я Провёл 50 часов в Одиночном Изоляторе",
                     "description": ""
                 },
                 "ja": {
                     "title": "独房で50時間過ごしてみたらどうなる！？",
                     "description": ""
                 },
-                "ar": {
-                    "title": "قضيت 50 ساعة في الحبس الانفرادي",
+                "fr": {
+                    "title": "J'ai Passé 50 Heures En Isolement.",
                     "description": ""
                 },
-                "ru": {
-                    "title": "Я Провёл 50 часов в Одиночном Изоляторе",
+                "pt": {
+                    "title": "Passei 50 Horas na Solitária!",
+                    "description": ""
+                },
+                "es": {
+                    "title": "Estuve 50 horas en Confinamiento Solitario",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "BE159H1skcOmVk5h3n7qgfF6D8U",
+            "etag": "QWkyIk-TPjBvm-7uEpXNgYYeS84",
             "id": "9bqk6ZUsKyA",
             "snippet": {
                 "publishedAt": "2021-03-27T20:00:04Z",
@@ -356,8 +356,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "188829826",
-                "likeCount": "6002265",
+                "viewCount": "188830547",
+                "likeCount": "6002279",
                 "favoriteCount": "0",
                 "commentCount": "239137"
             },
@@ -371,28 +371,28 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "fr": {
-                    "title": "Enterré Vivant Pendant 50 Heures",
+                "ru": {
+                    "title": "Я провел 50 часов, погребённый заживо",
+                    "description": ""
+                },
+                "es": {
+                    "title": "Estuve 50 Horas Enterrado Vivo",
                     "description": ""
                 },
                 "hi": {
                     "title": "मैंने बिताये 50 घंटे जिन्दा दफ़्न",
                     "description": ""
                 },
-                "ru": {
-                    "title": "Я провел 50 часов, погребённый заживо",
+                "pt": {
+                    "title": "Passei 50 Horas Enterrado Vivo",
                     "description": ""
                 },
                 "ar": {
                     "title": "قضيت 50 ساعة مدفونا على قيد الحياة",
                     "description": ""
                 },
-                "pt": {
-                    "title": "Passei 50 Horas Enterrado Vivo",
-                    "description": ""
-                },
-                "es": {
-                    "title": "Estuve 50 Horas Enterrado Vivo",
+                "fr": {
+                    "title": "Enterré Vivant Pendant 50 Heures",
                     "description": ""
                 },
                 "ja": {
@@ -403,7 +403,7 @@
         },
         {
             "kind": "youtube#video",
-            "etag": "LAkmOWTcxcMSUBdc35SbewrCTQU",
+            "etag": "iorI84MJKx97DALdETC3xwSnb6M",
             "id": "GLoeAJUcz38",
             "snippet": {
                 "publishedAt": "2020-11-14T21:00:02Z",
@@ -464,8 +464,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "184631209",
-                "likeCount": "3182558",
+                "viewCount": "184632397",
+                "likeCount": "3182575",
                 "favoriteCount": "0",
                 "commentCount": "88845"
             },
@@ -479,8 +479,16 @@
             },
             "recordingDetails": {},
             "localizations": {
+                "fr": {
+                    "title": "Appuyez sur ce bouton pour gagner 100 000 $ !",
+                    "description": ""
+                },
                 "es": {
                     "title": "Presiona el Botón para Ganar $100,000",
+                    "description": ""
+                },
+                "ja": {
+                    "title": "このボタンを押したら、1000万円ゲットできちゃう",
                     "description": ""
                 },
                 "ar": {
@@ -498,20 +506,12 @@
                 "hi": {
                     "title": "$100,000 जीतने के लिए इस बटन को दबाएं!",
                     "description": ""
-                },
-                "ja": {
-                    "title": "このボタンを押したら、1000万円ゲットできちゃう",
-                    "description": ""
-                },
-                "fr": {
-                    "title": "Appuyez sur ce bouton pour gagner 100 000 $ !",
-                    "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "z6yzf1VnUE6UBeMMmSeGkiBsx5E",
+            "etag": "7nVWoQV9tJOWq-LF2AaNCgp-Qnk",
             "id": "zxYjTTXc-J8",
             "snippet": {
                 "publishedAt": "2021-08-31T20:01:03Z",
@@ -572,8 +572,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "175802692",
-                "likeCount": "4390118",
+                "viewCount": "175804154",
+                "likeCount": "4390132",
                 "favoriteCount": "0",
                 "commentCount": "108828"
             },
@@ -588,20 +588,16 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "ru": {
-                    "title": "Кто последний выйдет из круга, получит $500,000",
+                "hi": {
+                    "title": "अखिर मे सर्कल से बहार जानेवाला जीतेगा $500,000",
                     "description": ""
                 },
                 "ar": {
                     "title": "اخر من يغادر الدائرة يكسب 500,000 دولار",
                     "description": ""
                 },
-                "fr": {
-                    "title": "Le Dernier à Quitter Le Cercle Gagne 500 000 $",
-                    "description": ""
-                },
-                "hi": {
-                    "title": "अखिर मे सर्कल से बहार जानेवाला जीतेगा $500,000",
+                "ru": {
+                    "title": "Кто последний выйдет из круга, получит $500,000",
                     "description": ""
                 },
                 "ja": {
@@ -612,6 +608,10 @@
                     "title": "El Último en Salir del Círculo Gana $500,000",
                     "description": ""
                 },
+                "fr": {
+                    "title": "Le Dernier à Quitter Le Cercle Gagne 500 000 $",
+                    "description": ""
+                },
                 "pt": {
                     "title": "Último a Sair do Círculo Ganha $500,000",
                     "description": ""
@@ -620,7 +620,7 @@
         },
         {
             "kind": "youtube#video",
-            "etag": "hJu4J3aMJkzuxCRfOQRm9elTPIY",
+            "etag": "5H1kpp2YQ2TST_RNpCaAFelPCgc",
             "id": "yXWw0_UfSFg",
             "snippet": {
                 "publishedAt": "2020-03-07T21:00:00Z",
@@ -681,8 +681,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "170528134",
-                "likeCount": "3980885",
+                "viewCount": "170528516",
+                "likeCount": "3980892",
                 "favoriteCount": "0",
                 "commentCount": "110495"
             },
@@ -697,39 +697,39 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "ru": {
-                    "title": "Я оплачу ВСЕ, что вы вместите в этот круг",
+                "ja": {
+                    "title": "円形の枠に入る物なら全部買ってあげたら【商品①、商品②、、】",
                     "description": ""
                 },
                 "es": {
                     "title": "TODO lo que Puedas Poner en el Círculo ¡LO PAGARÉ!",
                     "description": ""
                 },
+                "hi": {
+                    "title": "सर्कल में आप जो कुछ भी फिट कर सकते हैं, मैं उसका पैसा दूंगा",
+                    "description": ""
+                },
+                "ru": {
+                    "title": "Я оплачу ВСЕ, что вы вместите в этот круг",
+                    "description": ""
+                },
                 "ar": {
                     "title": "سأدع مقابل أي شئ تستطيع وضعه داخل الدائرة",
-                    "description": ""
-                },
-                "ja": {
-                    "title": "円形の枠に入る物なら全部買ってあげたら【商品①、商品②、、】",
-                    "description": ""
-                },
-                "fr": {
-                    "title": "Je Paierai TOUT Ce Que Vous Mettez Dans Le Cercle",
                     "description": ""
                 },
                 "pt": {
                     "title": "Tudo Que Couber No Círculo, Eu Pago",
                     "description": ""
                 },
-                "hi": {
-                    "title": "सर्कल में आप जो कुछ भी फिट कर सकते हैं, मैं उसका पैसा दूंगा",
+                "fr": {
+                    "title": "Je Paierai TOUT Ce Que Vous Mettez Dans Le Cercle",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "RS3vw-s0-J5zRQ7nhTZxRP2s2i4",
+            "etag": "V7LL6xORopeGYCnWPMrY4UgjwWw",
             "id": "QxGVgXf_LNk",
             "snippet": {
                 "publishedAt": "2019-10-05T20:00:08Z",
@@ -790,8 +790,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "159173437",
-                "likeCount": "3532453",
+                "viewCount": "159173706",
+                "likeCount": "3532462",
                 "favoriteCount": "0",
                 "commentCount": "126961"
             },
@@ -810,35 +810,35 @@
                     "title": "Проехал Через Одно И То Же Автокафе 1000 Раз",
                     "description": ""
                 },
-                "es-419": {
-                    "title": "Pasando por el Mismo Autoservicio 1,000 Veces",
-                    "description": ""
-                },
-                "ja": {
-                    "title": "同じドライブスルーを1,000回！",
+                "pt-BR": {
+                    "title": "Passei 1000 Vezes no Mesmo Drive Thru",
                     "description": ""
                 },
                 "fr": {
                     "title": "Passer Au Même Drive 1000 Fois",
                     "description": ""
                 },
-                "pt-BR": {
-                    "title": "Passei 1000 Vezes no Mesmo Drive Thru",
-                    "description": ""
-                },
-                "ar": {
-                    "title": "الذهاب 1.000 مرة لنفس الدرايف ثرو",
+                "ja": {
+                    "title": "同じドライブスルーを1,000回！",
                     "description": ""
                 },
                 "hi": {
                     "title": "एक ही ड्राइव थ्रू से 1000 बार जाना",
+                    "description": ""
+                },
+                "es-419": {
+                    "title": "Pasando por el Mismo Autoservicio 1,000 Veces",
+                    "description": ""
+                },
+                "ar": {
+                    "title": "الذهاب 1.000 مرة لنفس الدرايف ثرو",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "MsB0ouKyXn_eMkExOh5JCy1dYDY",
+            "etag": "AfHRkunRqSoD5GkWGf5EOWWW2VA",
             "id": "fMfipiV_17o",
             "snippet": {
                 "publishedAt": "2021-04-10T21:00:07Z",
@@ -899,8 +899,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "154685540",
-                "likeCount": "3804346",
+                "viewCount": "154686099",
+                "likeCount": "3804364",
                 "favoriteCount": "0",
                 "commentCount": "138400"
             },
@@ -914,39 +914,39 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "ar": {
-                    "title": "هل تجلس في حمام الثعابين مقابل 10,000؟",
-                    "description": ""
-                },
-                "ja": {
-                    "title": "大量の蛇の上に座れたら、100万円！",
+                "hi": {
+                    "title": "क्या आप $10,000 के लिए सांपों में बैठेंगे?",
                     "description": ""
                 },
                 "ru": {
                     "title": "Сел бы ты к змеям за $100,000?",
                     "description": ""
                 },
-                "pt": {
-                    "title": "Você Sentaria com Cobras por $10,000?",
+                "fr": {
+                    "title": "S'asseoir Dans Une Baignoire De Serpents Pour 10 000$",
                     "description": ""
                 },
-                "hi": {
-                    "title": "क्या आप $10,000 के लिए सांपों में बैठेंगे?",
+                "ar": {
+                    "title": "هل تجلس في حمام الثعابين مقابل 10,000؟",
+                    "description": ""
+                },
+                "pt": {
+                    "title": "Você Sentaria com Cobras por $10,000?",
                     "description": ""
                 },
                 "es": {
                     "title": "¿Te sentarías sobre serpientes por $10.000 dólares?",
                     "description": ""
                 },
-                "fr": {
-                    "title": "S'asseoir Dans Une Baignoire De Serpents Pour 10 000$",
+                "ja": {
+                    "title": "大量の蛇の上に座れたら、100万円！",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "o9rr687vtvUYbNDb8yW0Sq1m3fs",
+            "etag": "3a6pgm7miPbN1Q9UpQqLTP4TFXg",
             "id": "F4Y3Pkn95GI",
             "snippet": {
                 "publishedAt": "2020-02-29T21:00:22Z",
@@ -1007,8 +1007,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "154131766",
-                "likeCount": "3183224",
+                "viewCount": "154132136",
+                "likeCount": "3183232",
                 "favoriteCount": "0",
                 "commentCount": "108063"
             },
@@ -1023,39 +1023,39 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "ar": {
-                    "title": "اكلت بيتزا ذهبية بقيمة 70,000 دولار",
-                    "description": ""
-                },
-                "es": {
-                    "title": "Me Comí una Pizza de Oro de $70,000",
-                    "description": ""
-                },
                 "pt": {
                     "title": "Comi a Pizza Dourada de $70,000!",
                     "description": ""
                 },
-                "ru": {
-                    "title": "Я съел золотую пиццу за $70,000",
+                "ar": {
+                    "title": "اكلت بيتزا ذهبية بقيمة 70,000 دولار",
                     "description": ""
                 },
-                "ja": {
-                    "title": "700万円の金色ピザを食べてみた！",
+                "fr": {
+                    "title": "J'ai Mangé Une Pizza à 70 000 $",
                     "description": ""
                 },
                 "hi": {
                     "title": "मैंने $70,000 का गोल्डन पिज्जा खाया",
                     "description": ""
                 },
-                "fr": {
-                    "title": "J'ai Mangé Une Pizza à 70 000 $",
+                "ja": {
+                    "title": "700万円の金色ピザを食べてみた！",
+                    "description": ""
+                },
+                "ru": {
+                    "title": "Я съел золотую пиццу за $70,000",
+                    "description": ""
+                },
+                "es": {
+                    "title": "Me Comí una Pizza de Oro de $70,000",
                     "description": ""
                 }
             }
         },
         {
             "kind": "youtube#video",
-            "etag": "0MN9cdZNzuxi2Ewzwkbl2WY7lGA",
+            "etag": "LzQrHgRtPNPjl6YADSXZ1Cw_iK4",
             "id": "NkE0AMGzpJY",
             "snippet": {
                 "publishedAt": "2020-08-15T20:00:02Z",
@@ -1116,8 +1116,8 @@
                 "madeForKids": false
             },
             "statistics": {
-                "viewCount": "149550629",
-                "likeCount": "4087997",
+                "viewCount": "149551198",
+                "likeCount": "4088009",
                 "favoriteCount": "0",
                 "commentCount": "227561"
             },
@@ -1131,20 +1131,12 @@
             },
             "recordingDetails": {},
             "localizations": {
-                "ja": {
-                    "title": "8000万円の無人島に最後まで残った人に無人島あげてみた！",
-                    "description": ""
-                },
-                "hi": {
-                    "title": "अंतिम में $800,000 द्वीप छोड़ने वाला, इसे रखता है",
-                    "description": ""
-                },
-                "pt": {
-                    "title": "Último a Ficar Ganha a Ilha de $800,000!",
-                    "description": ""
-                },
                 "ru": {
                     "title": "Последний Покинувший Остров за $800,000 Получит Его",
+                    "description": ""
+                },
+                "ja": {
+                    "title": "8000万円の無人島に最後まで残った人に無人島あげてみた！",
                     "description": ""
                 },
                 "fr": {
@@ -1153,6 +1145,14 @@
                 },
                 "ar": {
                     "title": "اخر من يرحل عن الجزيرة يحصل على 800,000 دولار",
+                    "description": ""
+                },
+                "pt": {
+                    "title": "Último a Ficar Ganha a Ilha de $800,000!",
+                    "description": ""
+                },
+                "hi": {
+                    "title": "अंतिम में $800,000 द्वीप छोड़ने वाला, इसे रखता है",
                     "description": ""
                 },
                 "es": {
@@ -1167,91 +1167,91 @@
             "title": "I Gave My 100,000,000th Subscriber An Island",
             "publishedAt": "2022-08-04T19:59:59Z",
             "id": "2isYuQZMbdU",
-            "duration": "PT15M31S",
-            "viewCount": "43097003",
-            "commentCount": "204657",
-            "likeCount": "3044050"
+            "duration": 931,
+            "viewCount": "43109941",
+            "commentCount": "204666",
+            "likeCount": "3044644"
         },
         {
             "title": "100,000,000 Subscriber Special",
             "publishedAt": "2022-07-31T21:00:01Z",
             "id": "dZklZVaU4AI",
-            "duration": "PT16S",
-            "viewCount": "16815938",
-            "commentCount": "88873",
-            "likeCount": "1169835"
+            "duration": 16,
+            "viewCount": "16817044",
+            "commentCount": "88875",
+            "likeCount": "1169925"
         },
         {
             "title": "100 Girls Vs 100 Boys For $500,000",
             "publishedAt": "2022-07-23T20:00:09Z",
             "id": "tVWWp1PqDus",
-            "duration": "PT16M53S",
-            "viewCount": "52344835",
+            "duration": 1013,
+            "viewCount": "52350827",
             "commentCount": "124144",
-            "likeCount": "2479268"
+            "likeCount": "2479430"
         },
         {
             "title": "I Didn’t Eat Food For 30 Days",
             "publishedAt": "2022-07-02T20:00:02Z",
             "id": "vaIgyRoUkQI",
-            "duration": "PT13M4S",
-            "viewCount": "49138428",
+            "duration": 784,
+            "viewCount": "49139094",
             "commentCount": "100781",
-            "likeCount": "2439486"
+            "likeCount": "2439505"
         },
         {
             "title": "I Built Willy Wonka's Chocolate Factory!",
             "publishedAt": "2022-06-04T20:00:02Z",
             "id": "Hwybp38GnZw",
-            "duration": "PT17M2S",
-            "viewCount": "91551369",
-            "commentCount": "175887",
-            "likeCount": "4337433"
+            "duration": 1022,
+            "viewCount": "91554121",
+            "commentCount": "175890",
+            "likeCount": "4337516"
         },
         {
             "title": "$10,000 Every Day You Survive Prison",
             "publishedAt": "2022-04-09T20:00:00Z",
             "id": "hD1YtmKXNb4",
-            "duration": "PT13M59S",
-            "viewCount": "83594597",
-            "commentCount": "156443",
-            "likeCount": "3378993"
+            "duration": 839,
+            "viewCount": "83598054",
+            "commentCount": "156444",
+            "likeCount": "3379075"
         },
         {
             "title": "Would You Swim With Sharks For $100,000?",
             "publishedAt": "2022-03-19T20:02:32Z",
             "id": "LnlKwzc_TNA",
-            "duration": "PT9M",
-            "viewCount": "79411940",
+            "duration": 540,
+            "viewCount": "79414163",
             "commentCount": "103820",
-            "likeCount": "2786699"
+            "likeCount": "2786746"
         },
         {
             "title": "World’s Most Dangerous Escape Room!",
             "publishedAt": "2022-01-29T21:00:01Z",
             "id": "3jS_yEK8qVI",
-            "duration": "PT8M2S",
-            "viewCount": "120333667",
+            "duration": 482,
+            "viewCount": "120335371",
             "commentCount": "145469",
-            "likeCount": "3860588"
+            "likeCount": "3860621"
         },
         {
             "title": "Extreme $1,000,000 Hide And Seek",
             "publishedAt": "2021-12-18T21:00:00Z",
             "id": "00NgUctWoLQ",
-            "duration": "PT12M9S",
-            "viewCount": "71071333",
+            "duration": 729,
+            "viewCount": "71072347",
             "commentCount": "136459",
-            "likeCount": "3170975"
+            "likeCount": "3170990"
         },
         {
             "title": "$1,000,000 Influencer Tournament!",
             "publishedAt": "2021-12-16T21:00:00Z",
             "id": "x9TQ6culXIA",
-            "duration": "PT12M5S",
-            "viewCount": "57194467",
+            "duration": 725,
+            "viewCount": "57194758",
             "commentCount": "92146",
-            "likeCount": "2791675"
+            "likeCount": "2791680"
         }
     ]
 }
