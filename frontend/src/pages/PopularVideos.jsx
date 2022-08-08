@@ -8,38 +8,43 @@ import Loader from "../components/Loader";
 
 
 const PopularVideos = () => {
-	const [country, setCountry] = useState(["US", "United States of America"]);
+	const [country, setCountry] = useState(null);
 	const [videos, setVideos] = useState([]);
 	const countryList = require("./countryCode.json").sort();
    
 	useEffect(() => {
-		
 			fetch("https://ipapi.co/json/")
 			.then( res => res.json())
 			.then(response => {
-				setCountry(countryList.find(x => x[0] === response.country));	
+				updateCountry(countryList.find(x => x[0] === response.country))
 			})
 			.catch((a, b) => {
-				setCountry(["US", "United States of America"]);
-			});
-			
+				updateCountry(["US", "United States of America"])
+			})	
 	}, [countryList]);
-    
-	useEffect(() => {
-		if(country.length > 0) {
-			fetch('/api/popular-videos/'+country[0])
+
+
+	const updateCountry = (info) => {
+		setVideos([])
+		setCountry(info);
+		fetch('/api/popular-videos/'+info[0])
 				.then( res =>res.json() )
 				.then(response => {
 					setVideos(response);
 				})
-		}
-			
-	}, [country]);
+	}
 
 	const handleChange = (event) => {
-		setVideos([])
-		setCountry(JSON.parse(event.target.value));
-	};
+		updateCountry(JSON.parse(event.target.value))
+	}
+
+	if(!country){
+		return (
+			<div className="spinnerContainer">
+				<Loader/>
+			</div>
+		)
+	}
 
 	return (
 		<>
