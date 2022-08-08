@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from '../svgs/logo.svg'
 
 import './Navbar.css'
 
-const Navbar = ({ loggedIn }) => {
+const Navbar = () => {
 
     const location = useLocation()
     
@@ -19,11 +19,6 @@ const Navbar = ({ loggedIn }) => {
                     <Link to="/search" className="blackLink" style={{color: location.pathname === "/search" ? "#D4D4D4D4" : "black" }}>Search</Link>
                     <Link to="/popular-videos" className="blackLink" style={{color: location.pathname === "/popular-videos" ? "#D4D4D4D4" : "black" }}>Popular Videos</Link>
                     <Link to="/top-channels" className="blackLink" style={{color: location.pathname === "/top-channels" ? "#D4D4D4D4" : "black" }}>Top Channels</Link>
-                    {loggedIn ?
-                        <Link to="/logout" className="blackLink" style={{color: location.pathname === "/signin" ? "#D4D4D4D4" : "black" }}>Log out</Link>
-                        :
-                        <Link to="/signin" className="blackLink" style={{color: location.pathname === "/signin" ? "#D4D4D4D4" : "black" }}>Sign In</Link>
-                    }
                 </div>
             </div>
         </header>
