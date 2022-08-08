@@ -40,9 +40,9 @@ const RecentVideos = ({ recentVideos, className }) => {
                 data={[
                 {
                     type: 'bar', 
-                    x: recentVideos.map(x => formatDate(x.snippet.publishedAt)).reverse(), 
-                    y: recentVideos.map(x => x.statistics[key]).reverse(),
-                    hovertext: recentVideos.map(x => x.snippet.title).reverse(),
+                    x: recentVideos.map(x => formatDate(x.publishedAt)).reverse(), 
+                    y: recentVideos.map(x => x[key]).reverse(),
+                    hovertext: recentVideos.map(x => x.title).reverse(),
                     hovertemplate: '%{hovertext} <br> %{y} '+valueText+' - %{x}<extra></extra>'
                 },
                 ]}

@@ -106,10 +106,24 @@ const getChannelDetails = async (req, res) => {
         { params: recentVideosIdsParams }
     )
 
+    const recentVideos = await getVideosDetailsFromIdArray(
+        recentVideosIds.data.items
+    )
+
+    const recentVideosFormatted = recentVideos.map((x) => ({
+        title: x.snippet.title,
+        publishedAt: x.snippet.publishedAt,
+        id: x.id,
+        duration: x.contentDetails.duration,
+        viewCount: x.statistics.viewCount,
+        commentCount: x.statistics.commentCount,
+        likeCount: x.statistics.likeCount,
+    }))
+
     res.json({
         info: info.data.items[0],
         popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
-        recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
+        recent: recentVideosFormatted,
     })
 }
 
