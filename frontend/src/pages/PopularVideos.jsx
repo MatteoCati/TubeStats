@@ -8,11 +8,25 @@ import Loader from "../components/Loader";
 
 
 const PopularVideos = () => {
-	const [country, setCountry] = useState(null);
-	const [videos, setVideos] = useState([]);
-	const countryList = require("./countryCode.json").sort();
+	const [country, setCountry] = useState(null)
+	const [videos, setVideos] = useState([])
+	const [countryList, setCountryList] = useState([])
+	const [dataLoading, setDataLoading] = useState(false)
+	const [listLoading, setListLoading] = useState(false)
+
+	useEffect(() => {
+		setListLoading(true)
+		fetch('/api/country-codes')
+			.then(res => res.json())
+			.then(data => setCountryList(data))
+			.catch((err) =>{
+				 setCountryList([["US", "United States of America"]])
+				})
+			.finally(setListLoading(false))
+	}, [])
    
 	useEffect(() => {
+			setDataLoading(true)
 			fetch("https://ipapi.co/json/")
 			.then( res => res.json())
 			.then(response => {
@@ -25,20 +39,21 @@ const PopularVideos = () => {
 
 
 	const updateCountry = (info) => {
-		setVideos([])
+		setDataLoading(true)
 		setCountry(info);
 		fetch('/api/popular-videos/'+info[0])
 				.then( res =>res.json() )
 				.then(response => {
 					setVideos(response);
 				})
+				.finally(() => setDataLoading(false))
 	}
 
 	const handleChange = (event) => {
 		updateCountry(JSON.parse(event.target.value))
 	}
 
-	if(!country){
+	if(listLoading || !country){
 		return (
 			<div className="spinnerContainer">
 				<Loader/>
@@ -55,7 +70,7 @@ const PopularVideos = () => {
 				{countryList.map(l => 
 					<option key={l[0]} value={JSON.stringify(l)}>{l[1]}</option>)}
 			</select>
-			{ videos.length > 0
+			{ !dataLoading
 				?
 				<>
 					<YoutubeEmbed embedId={videos[0].id} className="mainVideo" />

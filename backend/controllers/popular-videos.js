@@ -1,6 +1,8 @@
 const { setParams } = require('./utils')
 const axios = require('axios')
 
+const countryList = require('../countryCode.json')
+
 const getPopularVideos = async (req, res) => {
     try {
         const params = setParams(['snippet', 'statistics'], {
@@ -20,4 +22,8 @@ const getPopularVideos = async (req, res) => {
     }
 }
 
-module.exports = { getPopularVideos }
+const getCountryList = (req, res) => {
+    res.json(countryList)
+}
+
+module.exports = { getPopularVideos, getCountryList }
