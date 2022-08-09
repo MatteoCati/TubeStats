@@ -2,11 +2,11 @@
 
 TubeStats is a website that allows you to find the most recent statistics about YouTube.
 
-![alt text](docs/topChannels.png)
+![alt text](https://github.com/MatteoCati/TubeStats/blob/main/docs/recentVideos.PNG)
 
 You can also get some details avout your favourite channels, such as vies, like and number of comments for recent videos and most popular videos of the channel.
 
-![alt text](docs/recentVideos.png)
+![alt text](https://github.com/MatteoCati/TubeStats/blob/main/docs/topChannels.PNG)
 
 ## Local Installation
 
