@@ -37,7 +37,7 @@ const getVideosDetailsFromIdArray = async (videoInfos) => {
 
         return video.data.items[0]
     })
-    const resloved = await Promise.all(videos)
+    const resolved = await Promise.all(videos)
 
     return resolved.map((x, idx) => ({
         title: x.snippet.title,
