@@ -1,10 +1,11 @@
 import React from 'react'
 import FooterImage from '../svgs/BottomBackground.svg'
 
+import './Footer.css'
+
 const Footer = () => {
     return (
-        <div style={{height: "250px", width: "100%", backgroundImage: `url('${FooterImage}')`, backgroundRepeat: 'no-repeat', backgroundSize: "cover",
-        position: "absolute", bottom: "0px"}}>
+        <div style={{ backgroundImage: `url('${FooterImage}')`}} className="footer">
 
         </div>
     )
