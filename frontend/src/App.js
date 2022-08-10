@@ -20,7 +20,7 @@ function App() {
         <div className='App'>
             <BrowserRouter>
                 <Navbar />
-                <div style={{ paddingTop: '80px' }}>
+                <div className='baseContainer'>
                     <Routes>
                         <Route
                             path='/'
