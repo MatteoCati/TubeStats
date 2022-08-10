@@ -49,7 +49,7 @@ function App() {
                         />
                         <Route
                             path='/search/:id'
-                            element={<ChannelStatsPage />}
+                            element={<ChannelStatsPage width={width} />}
                         />
                     </Routes>
                 </div>

@@ -23,6 +23,14 @@ export const formatDate = (date) => {
     return day + ' ' + allMonths[month - 1] + ' ' + year
 }
 
+export const formatShortDate = (date) => {
+    const year = date.slice(0, 4)
+    const month = parseInt(date.slice(5, 7))
+    const day = date.slice(8, 10)
+
+    return day + '/' + month + '/' + year
+}
+
 export const truncateText = (text, length) => {
     const splitted = text.trim().split(/\s+/)
 

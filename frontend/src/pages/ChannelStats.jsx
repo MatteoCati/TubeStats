@@ -5,7 +5,7 @@ import { formatDate, formatNumber } from '../utils'
 
 import './ChannelStats.css'
 
-const ChannelStatsPage = () => {
+const ChannelStatsPage = ({width}) => {
     const { id } = useParams()
     const [channelData, setChannelData] = useState(null)
 
@@ -35,8 +35,8 @@ const ChannelStatsPage = () => {
                 <p className='subscribersCount'>Subscribers: {subscribersCount}</p>
                 <p className='viewsCount'>Views: {formatNumber(channelData.info.statistics.viewCount)}</p>
                 <p className='videosCount'>Published Videos: {formatNumber(channelData.info.statistics.videoCount)}</p>
-                <VideosPlot videosList={channelData.recent} className="recentSection" title="Most Recent Videos"/>
-                <VideosPlot videosList={channelData.popular} className="popularSection" title="Most Viewed Videos"/>
+                <VideosPlot videosList={channelData.recent} className="recentSection" title="Most Recent Videos" width={width}/>
+                <VideosPlot videosList={channelData.popular} className="popularSection" title="Most Viewed Videos" width={width}/>
             </div>
         </>
     )

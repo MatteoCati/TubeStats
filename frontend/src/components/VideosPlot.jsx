@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
-import { formatDate, formatDuration, formatNumber } from '../utils';
+import { formatDate, formatDuration, formatNumber, formatShortDate } from '../utils';
 
 import './VideosPlot.css'
 
-const VideosPlot = ({ videosList, className, title }) => {
+const VideosPlot = ({ videosList, className, title, width }) => {
     const [key, setKey] = useState('viewCount')
 
     const keysList = [
@@ -27,10 +27,30 @@ const VideosPlot = ({ videosList, className, title }) => {
         ? "minutes"
         : "comments"
 
-    const customDataFormatter = key === 'duration'
+        const customDataFormatter = key === 'duration'
         ? formatDuration
         : formatNumber
 
+    const plotData = width < 600 ?
+        [{
+            type: 'bar', 
+            y: videosList.map(x => formatShortDate(x.publishedAt)).reverse(), 
+            x: videosList.map(x => x[key]).reverse(),
+            hovertext: videosList.map(x => x.title).reverse(),
+            customdata: videosList.map(x => customDataFormatter(x[key])).reverse(),
+            hovertemplate: '%{hovertext} <br>%{customdata} '+valueText+' - %{x}<extra></extra>',
+            orientation: 'h'
+        }]
+        :
+        [{
+            type: 'bar', 
+            x: videosList.map(x => formatDate(x.publishedAt)).reverse(), 
+            y: videosList.map(x => x[key]).reverse(),
+            hovertext: videosList.map(x => x.title).reverse(),
+            customdata: videosList.map(x => customDataFormatter(x[key])).reverse(),
+            hovertemplate: '%{hovertext} <br>%{customdata} '+valueText+' - %{x}<extra></extra>'
+        }]
+    
     return (
         <div className={className+" container"}> 
             <p className="sectionTitle">{title}</p>
@@ -44,16 +64,7 @@ const VideosPlot = ({ videosList, className, title }) => {
             
             <Plot
                 className="plot"
-                data={[
-                {
-                    type: 'bar', 
-                    x: videosList.map(x => formatDate(x.publishedAt)).reverse(), 
-                    y: videosList.map(x => x[key]).reverse(),
-                    hovertext: videosList.map(x => x.title).reverse(),
-                    customdata: videosList.map(x => customDataFormatter(x[key])).reverse(),
-                    hovertemplate: '%{hovertext} <br>%{customdata} '+valueText+' - %{x}<extra></extra>'
-                },
-                ]}
+                data={plotData}
             /> 
             <p className="tip">Hover on the columns to read the videos' titles</p>   
         </div>
