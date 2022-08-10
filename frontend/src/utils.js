@@ -1,5 +1,15 @@
 export const formatNumber = (num) => {
-    return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+    const stringNum = num.toString()
+    let result = ''
+    let counter = 0
+    for (let i = stringNum.length - 1; i >= 0; i--) {
+        result = stringNum[i] + result
+        counter += 1
+        if (counter % 3 === 0 && i > 0) {
+            result = ',' + result
+        }
+    }
+    return result
 }
 
 export const formatDate = (date) => {
