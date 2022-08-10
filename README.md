@@ -1,5 +1,7 @@
 # TubeStats
 
+Live version [here](https://tube-stats.herokuapp.com).
+
 TubeStats is a website that allows you to find the most recent statistics about YouTube.
 
 ![alt text](https://github.com/MatteoCati/TubeStats/blob/main/docs/topChannels.PNG)
@@ -14,9 +16,8 @@ To install this project, you can clone this repository. Then, you will need to s
 
 ### Backend
 
-Go in the backend folder, and install the required packages:
+Install the required packages using npm:
 
-> cd backend
 
 > npm install
 
@@ -32,7 +33,7 @@ PORT=4000
 YOUTUBE_API_KEY=my-secret-api-key
 ```
 
-Then, you can execute the following command to start the backend:
+Finally, you can execute the following command to start the backend:
 
 > npm run dev
 
