@@ -47,3 +47,64 @@
     letter-spacing: 0.02em;
     text-align: left;
 }
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 200px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Stay on top */
+    top: 0px; /* Stay at the top */
+    right: 0;
+    background-color: rgb(251, 231, 231);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 30px; /* Place content 60px from the top */
+    transition: 1s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    display: block;
+}
+
+.openSideMenu {
+    font-size: 30px;
+}
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+@media only screen and (max-width: 650px) {
+    .menu {
+        display: none;
+    }
+
+    .navbar {
+        height: 50px;
+    }
+
+    .logoImage {
+        height: 47px;
+    }
+
+    .navbar .container {
+        padding-left: 0px;
+        margin-left: -10px;
+        padding-right: 10px;
+    }
+}
+
+
+
+@media only screen and (min-width: 650px) {
+    .openSideMenu {
+        display: none;
+    }
+
+
+}
