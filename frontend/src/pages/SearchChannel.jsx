@@ -3,11 +3,15 @@ import "./SearchChannel.css";
 
 import { Link } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
+import useDocumentTitle from "../hooks/useTitle"
+
 
 const SearchChannel = ({searchHook}) => {
     const [channelList, setChannelList] = useState([]);
     const [searchDone, setSearchDone] = useState(false);
     const [loading, setLoading] = useState(false)
+
+    useDocumentTitle('TubeStats - Search')
 
     const handleSearch = (searchValue) => {
         if(loading) return

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from '../components/Loader';
 import { formatNumber } from "../utils";
+import useDocumentTitle from "../hooks/useTitle"
 
 import './TopChannels.css'
 
@@ -20,6 +21,8 @@ const TopChannelRow = ({channelInfo, position}) => {
 
 const TopChannels = () => {
     const [channelsList, setChannelsList] = useState([])
+
+    useDocumentTitle('TubeStats - Top Channels')
     
     useEffect(() => {
         fetch('/api/top-channels')
