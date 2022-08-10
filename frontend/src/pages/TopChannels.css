@@ -31,6 +31,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 .channelName > a:visited {
     color: blue;
@@ -49,8 +51,19 @@
     border-radius: 10px;
     border: 1px solid black;
     border-bottom: none;
-    justify-content: space-between;
     padding: 0px 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .channelName {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .channelName > p {
+        margin-bottom: 0;
+        margin-top: 5px;
+    }
 }
 
 .evenRow {
@@ -68,6 +81,7 @@
     margin-left: 10px;
     margin-right: 30px;
 }
+
 .number {
     font-weight: 700;
     font-size: 20px;
