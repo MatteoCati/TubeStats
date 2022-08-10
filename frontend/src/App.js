@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
@@ -15,6 +15,18 @@ import './App.css'
 
 function App() {
     const searchHook = useState('')
+    const [width, setWindowWidth] = useState(0)
+    useEffect(() => {
+        updateDimensions()
+
+        window.addEventListener('resize', updateDimensions)
+        return () => window.removeEventListener('resize', updateDimensions)
+    }, [])
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWindowWidth(width)
+    }
 
     return (
         <div className='App'>
@@ -28,7 +40,7 @@ function App() {
                         />
                         <Route
                             path='/popular-videos'
-                            element={<PopularVideos />}
+                            element={<PopularVideos width={width} />}
                         />
                         <Route path='/top-channels' element={<TopChannels />} />
                         <Route

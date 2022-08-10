@@ -7,7 +7,7 @@ import { formatNumber, truncateText } from "../utils"
 import Loader from "../components/Loader";
 
 
-const PopularVideos = () => {
+const PopularVideos = ({width}) => {
 	const [country, setCountry] = useState(null)
 	const [videos, setVideos] = useState([])
 	const [countryList, setCountryList] = useState([])
