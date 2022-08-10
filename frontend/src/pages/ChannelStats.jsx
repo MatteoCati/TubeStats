@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import VideosPlot from '../components/VideosPlot'
 import { formatDate, formatNumber } from '../utils'
+import useDocumentTitle from "../hooks/useTitle"
 
 import './ChannelStats.css'
 
 const ChannelStatsPage = ({width}) => {
     const { id } = useParams()
     const [channelData, setChannelData] = useState(null)
+
+    useDocumentTitle('TubeStats - Search')
 
     useEffect(() => {
         fetch("/api/search/"+id)

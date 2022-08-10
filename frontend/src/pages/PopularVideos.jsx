@@ -5,6 +5,7 @@ import "./PopularVideos.css";
 
 import { formatNumber, truncateText } from "../utils"
 import Loader from "../components/Loader";
+import useDocumentTitle from "../hooks/useTitle"
 
 
 const PopularVideos = ({width}) => {
@@ -13,6 +14,8 @@ const PopularVideos = ({width}) => {
 	const [countryList, setCountryList] = useState([])
 	const [dataLoading, setDataLoading] = useState(false)
 	const [listLoading, setListLoading] = useState(false)
+
+	useDocumentTitle('TubeStats - Popular Videos')
 
 	useEffect(() => {
 		setListLoading(true)
