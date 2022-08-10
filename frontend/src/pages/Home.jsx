@@ -24,23 +24,23 @@ const Home = ({searchHook}) => {
                         placeholder="Start by searching a channel..."/>
                 </div> 
             </div>
-            
+           
             <div className="pages trendingContainer">
                 <img src={PodiumImage} className="topchanimg" alt="A podium with the youtube symbol"/>
-                <p className="topchantext text">What are the biggest channels<br></br>at the moment?</p>
+                <p className="topchantext text">What are the biggest channels at the moment?</p>
                 <button type="button" onClick={() => navigate('/top-channels')} className="button topchanbtn">Find Out</button>
             </div>
             
             <div className="middleContainer">
                 <div className="pages">
                     <PlotImage className="trendingimg"/>
-                    <p className="trendingtext text">Look what is trending<br/>in any country of the World!</p>
+                    <p className="trendingtext text">Look what is trending in any country of the World!</p>
                     <button type="button" onClick={() => navigate("/popular-videos")} className="button trendingbtn">Go!</button>
                 </div>
             </div>
             <div className="pages">
                 <img src={hero} className="searchimg" alt="A screen with youtube open"/>
-                <p className="searchtext text">Search statistics<br/>about your favourite youtuber!</p>
+                <p className="searchtext text">Search statistics about your favourite youtuber!</p>
                 <button type="button" onClick={() => navigate('/search')} className="button searchbtn">Search Now</button>
             </div>
 		</>
