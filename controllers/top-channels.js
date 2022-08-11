@@ -97,7 +97,7 @@ const getTopChannels = async (req, res) => {
             data = retrievedChannels.data.items[0]
             return {
                 title: data.snippet.title,
-                url: 'https://www.youtube.com/' + data.snippet.customUrl,
+                url: 'https://www.youtube.com/channel/' + data.id,
                 subscribers: data.statistics.subscriberCount,
                 thumbnail: data.snippet.thumbnails.default,
             }
