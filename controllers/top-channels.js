@@ -32,7 +32,7 @@ const getListFromWikipedia = async () => {
     })
 
     return jsonTable.map((element) => {
-        const cell = element[1]
+        const cell = element[0]
         const splits = cell.split('>')
         const title = splits[splits.length - 2]
         const endLink = title.indexOf('</a')
@@ -45,6 +45,8 @@ const getId = async (channelName) => {
     const channel = channelslist.filter((c) => c.name === channelName)
     if (channel.length > 0) {
         return channel[0].id
+    } else if(process.env.ENV_TYPE === 'offline') {
+        return 'UCX6OQ3DkcsbYNE6H8uQQuVA';
     } else {
         // Get channel ID from API
         console.log('Looking for ' + channelName)
