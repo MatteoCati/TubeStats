@@ -28,6 +28,13 @@
     grid-row: 5 / span 4;
 }
 
+.errorMessage{
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 4;
+    display: flex;
+    justify-content: center;
+}
+
 .mainVideoTitle{
     grid-column: 9 / span 4;
     grid-row: 5;

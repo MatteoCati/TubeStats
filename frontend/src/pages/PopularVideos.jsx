@@ -14,6 +14,7 @@ const PopularVideos = ({width}) => {
 	const [countryList, setCountryList] = useState([])
 	const [dataLoading, setDataLoading] = useState(false)
 	const [listLoading, setListLoading] = useState(false)
+	const [success, setSuccess] = useState(true)
 
 	useDocumentTitle('TubeStats - Popular Videos')
 
@@ -27,7 +28,7 @@ const PopularVideos = ({width}) => {
 				})
 			.finally(setListLoading(false))
 	}, [])
-   
+
 	useEffect(() => {
 			setDataLoading(true)
 			fetch("https://ipapi.co/json/")
@@ -37,7 +38,7 @@ const PopularVideos = ({width}) => {
 			})
 			.catch((a, b) => {
 				updateCountry(["US", "United States of America"])
-			})	
+			})
 	}, [countryList]);
 
 
@@ -46,8 +47,11 @@ const PopularVideos = ({width}) => {
 		setCountry(info);
 		fetch('/api/popular-videos/'+info[0])
 				.then( res =>res.json() )
-				.then(response => {
-					setVideos(response);
+				.then(data => {
+					if(data.success){
+						setVideos(data.video)
+					}
+					setSuccess(data.success)
 				})
 				.finally(() => setDataLoading(false))
 	}
@@ -68,35 +72,39 @@ const PopularVideos = ({width}) => {
 		<>
 		<div className="titleContainer"><p className="subTitle">Popular Videos in {country[1]}</p> </div>
 		<div className="pages">
-			
+
 			<select className="selectCountry" onChange={handleChange} value={JSON.stringify(country)} >
-				{countryList.map(l => 
+				{countryList.map(l =>
 					<option key={l[0]} value={JSON.stringify(l)}>{l[1]}</option>)}
 			</select>
 			{ !dataLoading
 				?
-				<>
-					<YoutubeEmbed embedId={videos[0].id} className="mainVideo" />
-					<div className="mainVideoTitle">{videos[0].snippet.title}</div>
-					<div className="mainVideoAuthor">{videos[0].snippet.channelTitle}</div>
-					<div className="mainVideoViews">{formatNumber(videos[0].statistics.viewCount)} views</div>
-					<div className="mainVideoDescription">{truncateText(videos[0].snippet.localized.description, 128)}...</div>
-					
-					{videos.slice(1, videos.length).map((video, key) => { 
-						return (
-							<>
-								<span style={{gridRow: (10+key*3).toString()}} className="videoListCounter"><strong>{key+2}.</strong></span>
-								<YoutubeEmbed embedId={video.id} className="videoListItem"  style={{gridRow: (10+key*3).toString()+" / span 3"}}/>
-								<span style={{gridRow: (10+key*3).toString()}} className="videoListText">{video.snippet.title}</span>
-								<span style={{gridRow: (11+key*3).toString()}} className="videoListText">
-									{video.snippet.channelTitle}<br/>
-									{formatNumber(video.statistics.viewCount)} views
-								</span>
-							</>
+				success
+					?
+					<>
+						<YoutubeEmbed embedId={videos[0].id} className="mainVideo" />
+						<div className="mainVideoTitle">{videos[0].snippet.title}</div>
+						<div className="mainVideoAuthor">{videos[0].snippet.channelTitle}</div>
+						<div className="mainVideoViews">{formatNumber(videos[0].statistics.viewCount)} views</div>
+						<div className="mainVideoDescription">{truncateText(videos[0].snippet.localized.description, 128)}...</div>
+
+						{videos.slice(1, videos.length).map((video, key) => {
+							return (
+								<>
+									<span style={{gridRow: (10+key*3).toString()}} className="videoListCounter"><strong>{key+2}.</strong></span>
+									<YoutubeEmbed embedId={video.id} className="videoListItem"  style={{gridRow: (10+key*3).toString()+" / span 3"}}/>
+									<span style={{gridRow: (10+key*3).toString()}} className="videoListText">{video.snippet.title}</span>
+									<span style={{gridRow: (11+key*3).toString()}} className="videoListText">
+										{video.snippet.channelTitle}<br/>
+										{formatNumber(video.statistics.viewCount)} views
+									</span>
+								</>
+							)}
 						)}
-					)}
-					
-				</>
+
+					</>
+					:
+					<div className={'errorMessage'}>An error occurred while loading the videos, Please try again later</div>
 				:
 				<div className="spinnerContainer">
 					<Loader/>
