@@ -6,22 +6,25 @@ const searchChannels = async (req, res) => {
     // Used stored json data instead of loading from youtube
     if (process.env.ENV_TYPE === 'offline') {
         const searchResults = require('../searchResults.json')
-        res.json(searchResults)
+        res.json({success: true, items: searchResults})
         return
     }
     let channelName = req.query.key || ''
+    try {
+        const params = setParams(['snippet'], {
+            type: 'channel',
+            maxResults: 10,
+            q: channelName,
+        })
 
-    const params = setParams(['snippet'], {
-        type: 'channel',
-        maxResults: 10,
-        q: channelName,
-    })
-
-    const response = await axios.get(
-        'https://www.googleapis.com/youtube/v3/search',
-        { params }
-    )
-    res.json(response.data.items)
+        const response = await axios.get(
+            'https://www.googleapis.com/youtube/v3/search',
+            { params }
+        )
+        res.json({items: response.data.items, success: true})
+    } catch(err) {
+        res.json({success: false, message: 'Failed Fetch'})
+    }
 }
 
 const getVideosDetailsFromIdArray = async (videoInfos) => {
