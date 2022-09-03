@@ -57,7 +57,7 @@ const getChannelDetails = async (req, res) => {
     // Used stored json data instead of loading from youtube
     if (process.env.ENV_TYPE === 'offline') {
         const searchResults = require('../searchChannel.json')
-        res.json(searchResults)
+        res.json({ ...searchResults, success: true })
         return
     }
 
@@ -77,40 +77,46 @@ const getChannelDetails = async (req, res) => {
         ],
         { id: channelId }
     )
-    const info = await axios.get(
-        'https://youtube.googleapis.com/youtube/v3/channels',
-        { params: infoParams }
-    )
+    try {
+        const info = await axios.get(
+            'https://youtube.googleapis.com/youtube/v3/channels',
+            { params: infoParams }
+        )
 
-    const popularVideosIdsParams = setParams(['id'], {
-        channelId,
-        maxResults: 10,
-        order: 'viewCount',
-        type: 'video',
-    })
+        const popularVideosIdsParams = setParams(['id'], {
+            channelId,
+            maxResults: 10,
+            order: 'viewCount',
+            type: 'video',
+        })
 
-    const popularVideosIds = await axios.get(
-        'https://youtube.googleapis.com/youtube/v3/search',
-        { params: popularVideosIdsParams }
-    )
+        const popularVideosIds = await axios.get(
+            'https://youtube.googleapis.com/youtube/v3/search',
+            { params: popularVideosIdsParams }
+        )
 
-    const recentVideosIdsParams = setParams(['id'], {
-        channelId,
-        maxResults: 10,
-        order: 'date',
-        type: 'video',
-    })
+        const recentVideosIdsParams = setParams(['id'], {
+            channelId,
+            maxResults: 10,
+            order: 'date',
+            type: 'video',
+        })
 
-    const recentVideosIds = await axios.get(
-        'https://youtube.googleapis.com/youtube/v3/search',
-        { params: recentVideosIdsParams }
-    )
+        const recentVideosIds = await axios.get(
+            'https://youtube.googleapis.com/youtube/v3/search',
+            { params: recentVideosIdsParams }
+        )
 
-    res.json({
-        info: info.data.items[0],
-        popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
-        recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
-    })
+        res.json({
+            success: true,
+            info: info.data.items[0],
+            popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
+            recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
+        })
+    } catch(err){
+        res.json({ success: false, message: 'Failed Fetch' })
+    }
+
 }
 
 module.exports = {
