@@ -14,11 +14,11 @@ const getPopularVideos = async (req, res) => {
             'https://youtube.googleapis.com/youtube/v3/videos',
             { params }
         )
-        res.json(response.data.items)
+        res.json({videos: response.data.items, success: true})
     } catch (err) {
         // Handle Error Here
         console.error(req.params.country)
-        res.json({ err: 'Could not get videos for ' + req.params.country })
+        res.json({ success: false, err: 'Could not get videos for ' + req.params.country })
     }
 }
 

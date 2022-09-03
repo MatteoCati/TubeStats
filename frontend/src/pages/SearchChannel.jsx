@@ -8,6 +8,7 @@ import useDocumentTitle from "../hooks/useTitle"
 
 const SearchChannel = ({searchHook}) => {
     const [channelList, setChannelList] = useState([]);
+    const [success, setSuccess] = useState(true)
     const [searchDone, setSearchDone] = useState(false);
     const [loading, setLoading] = useState(false)
 
@@ -19,7 +20,12 @@ const SearchChannel = ({searchHook}) => {
         fetch('/api/search?key='+searchValue)
             .then(res => res.json())
             .then(data => {
-                setChannelList(data)
+                if(data.success) {
+                    setChannelList(data.items)
+                }else {
+                    setChannelList([])
+                }
+                setSuccess(data.success)
                 setLoading(false)
             })
             .catch(err => {
@@ -36,8 +42,9 @@ const SearchChannel = ({searchHook}) => {
         }
     }, [])
 
-    const showNoResultMessage = channelList.length === 0 && searchDone && !loading
+    const showNoResultMessage = channelList.length === 0 && searchDone && !loading && success
     const showStartSearchMessage = channelList.length === 0 && !searchDone && !loading
+    const showErrorMessage = !loading && !success
 
     return (
         <div className="pages">
@@ -50,6 +57,7 @@ const SearchChannel = ({searchHook}) => {
             ))}
             {showNoResultMessage && <div className='noResultContainer'>No result found, try again...</div>}
             {showStartSearchMessage && <div className='noResultContainer'>Search a channel name...</div>}
+            {showErrorMessage && <div className='noResultContainer'>Sorry, something went wrong when loading your results... Try again later</div> }
 
         </div>
     )

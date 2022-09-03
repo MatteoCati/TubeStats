@@ -14,21 +14,25 @@ const TopChannelRow = ({channelInfo, position}) => {
                 <a href={channelInfo.url}  target="_blank" rel="noopener noreferrer">{channelInfo.title}</a>
                 <p>{formatNumber(channelInfo.subscribers)} subscribers</p>
             </div>
-            
+
         </div>
     )
 }
 
 const TopChannels = () => {
     const [channelsList, setChannelsList] = useState([])
+    const [success, setSuccess] = useState(true)
 
     useDocumentTitle('TubeStats - Top Channels')
-    
+
     useEffect(() => {
         fetch('/api/top-channels')
         .then(res => res.json())
         .then(data => {
-            setChannelsList(data)
+            if(data.success){
+                setChannelsList(data.items)
+            }
+            setSuccess(data.success)
         })
         .catch(err => console.log(err))
     }, [])
@@ -36,17 +40,21 @@ const TopChannels = () => {
     return (
         <div className="pages">
             <div className="titleContainer"><p className="subTitle">Top Channels</p></div>
-            {channelsList.length === 0 
-            ?
-            <div className="spinnerContainer">
-				<Loader/>
-			</div>
-            :
-            <div className="listContainer">
-                {channelsList.map((channel, idx) => 
-                    <TopChannelRow channelInfo={channel} position={idx+1} key={channel.title}/>
-                )}
-            </div>
+            {!success
+                ?
+                <div className='spinnerContainer'>An error occurred while loading the channels, please try again later</div>
+                :
+                channelsList.length === 0
+                    ?
+                    <div className="spinnerContainer">
+                        <Loader/>
+                    </div>
+                    :
+                    <div className="listContainer">
+                        {channelsList.map((channel, idx) =>
+                            <TopChannelRow channelInfo={channel} position={idx+1} key={channel.title}/>
+                        )}
+                    </div>
             }
         </div>
     )

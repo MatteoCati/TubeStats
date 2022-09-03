@@ -9,6 +9,7 @@ import './ChannelStats.css'
 const ChannelStatsPage = ({width}) => {
     const { id } = useParams()
     const [channelData, setChannelData] = useState(null)
+    const [success, setSuccess] = useState(true)
 
     useDocumentTitle('TubeStats - Search')
 
@@ -16,9 +17,17 @@ const ChannelStatsPage = ({width}) => {
         fetch("/api/search/"+id)
             .then(resp => resp.json())
             .then(data => {
-                setChannelData(data)
+                if(data.success){
+                    setChannelData({
+                        info: data.info,
+                        recent: data.recent,
+                        popular: data.popular
+                    })
+                }
+                setSuccess(data.success)
             }).catch(err => console.log(err))
     }, [])
+    if(!success) return <div className='errorMessage'>Something went wrong while loading the information... Please try again later</div>
     if(!channelData) return <></>
     //console.log(channelData.info)
 

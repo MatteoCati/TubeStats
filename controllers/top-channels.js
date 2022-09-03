@@ -85,7 +85,7 @@ const getTopChannels = async (req, res) => {
     })
 
     resolveIds = await Promise.all(channels)
-
+    let success = true
     bestInfo = resolveIds.map(async (id) => {
         try {
             const params = setParams(['snippet', 'statistics'], {
@@ -104,10 +104,11 @@ const getTopChannels = async (req, res) => {
                 thumbnail: data.snippet.thumbnails.default,
             }
         } catch (err) {
+            success = false
             console.log('Could not find channel with id', id)
         }
     })
-    res.json(await Promise.all(bestInfo))
+    res.json({ items: await Promise.all(bestInfo), success: success})
 }
 
 module.exports = {
