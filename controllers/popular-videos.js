@@ -5,22 +5,19 @@ const countryList = require('../countryCode.json')
 
 class PopularVideosController {
 
+    constructor(popularVideosService){
+        this.popularVideosService = popularVideosService
+    }
+
     async getPopularVideos(req, res) {
+        const countryCode = req.params.country
         try {
-            const params = setParams(['snippet', 'statistics'], {
-                maxResults: 10,
-                chart: 'mostPopular',
-                regionCode: req.params.country,
-            })
-            const response = await axios.get(
-                'https://youtube.googleapis.com/youtube/v3/videos',
-                {params}
-            )
-            res.json({videos: response.data.items, success: true})
+            const videos = await this.popularVideosService.getPopularVideos(countryCode)
+            res.json({videos: videos, success: true})
         } catch (err) {
-            // Handle Error Here
-            console.error(req.params.country)
-            res.json({success: false, err: 'Could not get videos for ' + req.params.country})
+            // Handle Error
+            console.error('Error while loading popular videos for ' + countryCode)
+            res.json({success: false, err: 'Could not get videos for ' + countryCode})
         }
     }
 

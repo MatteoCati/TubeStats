@@ -1,5 +1,6 @@
 const express = require('express')
 
+const PopularVideosService = require('./services/popular-videos')
 const PopularVideosController = require('./controllers/popular-videos')
 const SearchChannelsController = require('./controllers/search')
 const SearchChannelService = require('./services/search')
@@ -7,7 +8,8 @@ const { getTopChannels } = require('./controllers/top-channels')
 
 const router = express.Router()
 
-const popularVideosControllerSingleton = new PopularVideosController()
+const popularVideosServiceSingleton = new PopularVideosService()
+const popularVideosControllerSingleton = new PopularVideosController(popularVideosServiceSingleton)
 router.get('/country-codes', popularVideosControllerSingleton.getCountryList.bind(popularVideosControllerSingleton))
 router.get('/popular-videos/:country', popularVideosControllerSingleton.getPopularVideos.bind(popularVideosControllerSingleton))
 
