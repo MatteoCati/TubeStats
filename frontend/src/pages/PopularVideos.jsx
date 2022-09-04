@@ -49,7 +49,7 @@ const PopularVideos = ({width}) => {
 				.then( res =>res.json() )
 				.then(data => {
 					if(data.success){
-						setVideos(data.video)
+						setVideos(data.videos)
 					}
 					setSuccess(data.success)
 				})
