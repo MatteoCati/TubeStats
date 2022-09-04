@@ -82,9 +82,7 @@ class TopChannelsService{
         const channel = channelslist.filter((c) => c.name === channelName)
         if (channel.length > 0) {
             return channel[0].id
-        } else if (process.env.ENV_TYPE === 'offline') {
-            return 'UCX6OQ3DkcsbYNE6H8uQQuVA';
-        } else {
+        }else {
             // Get channel ID from API
             console.log('Looking for ' + channelName)
             const params = setParams(['snippet'], {
