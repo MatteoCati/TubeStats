@@ -1,8 +1,9 @@
-const { setParams } = require('./utils')
-const axios = require('axios')
-const moment = require('moment')
-
 class SearchChannelController {
+
+    constructor(searchChannelsService) {
+        this.searchChannelsService = searchChannelsService
+    }
+
     async searchChannels(req, res) {
         // Used stored json data instead of loading from youtube
         if (process.env.ENV_TYPE === 'offline') {
@@ -10,48 +11,15 @@ class SearchChannelController {
             res.json({success: true, items: searchResults})
             return
         }
-        let channelName = req.query.key || ''
-        try {
-            const params = setParams(['snippet'], {
-                type: 'channel',
-                maxResults: 10,
-                q: channelName,
-            })
 
-            const response = await axios.get(
-                'https://www.googleapis.com/youtube/v3/search',
-                {params}
-            )
-            res.json({items: response.data.items, success: true})
+        try {
+            const channelName = req.query.key || ''
+            const items = await this.searchChannelsService.getChannels(channelName)
+            res.json({ items: items, success: true})
         } catch (err) {
+            console.log(err)
             res.json({success: false, message: 'Failed Fetch'})
         }
-    }
-
-    async getVideosDetailsFromIdArray(videoInfos){
-        const videos = videoInfos.map(async ({id}) => {
-            const params = setParams(['snippet', 'contentDetails', 'statistics'], {
-                id: id.videoId,
-            })
-
-            const video = await axios.get(
-                'https://youtube.googleapis.com/youtube/v3/videos',
-                {params}
-            )
-
-            return video.data.items[0]
-        })
-        const resolved = await Promise.all(videos)
-
-        return resolved.map((x, idx) => ({
-            title: x.snippet.title,
-            publishedAt: x.snippet.publishedAt,
-            id: videoInfos[idx].id.videoId,
-            duration: moment.duration(x.contentDetails.duration).asSeconds(),
-            viewCount: x.statistics.viewCount,
-            commentCount: x.statistics.commentCount,
-            likeCount: x.statistics.likeCount,
-        }))
     }
 
     async getChannelDetails(req, res){
@@ -62,57 +30,12 @@ class SearchChannelController {
             return
         }
 
-        const channelId = req.params.id
-
-        const infoParams = setParams(
-            [
-                'brandingSettings',
-                'contentDetails',
-                'contentOwnerDetails',
-                'id',
-                'localizations',
-                'snippet',
-                'statistics',
-                'status',
-                'topicDetails',
-            ],
-            {id: channelId}
-        )
         try {
-            const info = await axios.get(
-                'https://youtube.googleapis.com/youtube/v3/channels',
-                {params: infoParams}
-            )
-
-            const popularVideosIdsParams = setParams(['id'], {
-                channelId,
-                maxResults: 10,
-                order: 'viewCount',
-                type: 'video',
-            })
-
-            const popularVideosIds = await axios.get(
-                'https://youtube.googleapis.com/youtube/v3/search',
-                {params: popularVideosIdsParams}
-            )
-
-            const recentVideosIdsParams = setParams(['id'], {
-                channelId,
-                maxResults: 10,
-                order: 'date',
-                type: 'video',
-            })
-
-            const recentVideosIds = await axios.get(
-                'https://youtube.googleapis.com/youtube/v3/search',
-                {params: recentVideosIdsParams}
-            )
-
+            const channelId = req.params.id
+            const channelInfo = await this.searchChannelsService.getDetails(channelId)
             res.json({
+                ...channelInfo,
                 success: true,
-                info: info.data.items[0],
-                popular: await getVideosDetailsFromIdArray(popularVideosIds.data.items),
-                recent: await getVideosDetailsFromIdArray(recentVideosIds.data.items),
             })
         } catch (err) {
             res.json({success: false, message: 'Failed Fetch'})
