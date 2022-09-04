@@ -1,5 +1,4 @@
-const { setParams } = require('./utils')
-const axios = require('axios')
+const popularVideosList = require("../popularVideos.json");
 
 const countryList = require('../countryCode.json')
 
@@ -11,6 +10,12 @@ class PopularVideosController {
 
     async getPopularVideos(req, res) {
         const countryCode = req.params.country
+
+        if(process.env.ENV_TYPE === 'offline'){
+            res.json({success: true, videos: popularVideosList})
+            return
+        }
+
         try {
             const videos = await this.popularVideosService.getPopularVideos(countryCode)
             res.json({videos: videos, success: true})
