@@ -23,6 +23,13 @@ class TopChannelsService{
                     {params}
                 )
                 const data = retrievedChannels.data.items[0]
+                data.sort(function(chan1, chan2){
+                    const sub1 = parseInt(chan1.subscribers)
+                    const sub2 = parseInt(chan2.subscribers)
+                    if(sub1 > sub2) return -1
+                    if(sub1 < sub2) return 1
+                    return 0
+                })
                 return {
                     title: data.snippet.title,
                     url: 'https://www.youtube.com/channel/' + data.id,
