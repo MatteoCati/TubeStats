@@ -1,5 +1,5 @@
 const axios = require("axios");
-const channelslist = require("../channelsId.json");
+const channelslist = require("../offline-data/channelsId.json");
 const {setParams} = require("../controllers/utils");
 const fs = require("fs");
 

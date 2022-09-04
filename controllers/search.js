@@ -7,7 +7,7 @@ class SearchChannelController {
     async searchChannels(req, res) {
         // Used stored json data instead of loading from youtube
         if (process.env.ENV_TYPE === 'offline') {
-            const searchResults = require('../searchResults.json')
+            const searchResults = require('../offline-data/searchResults.json')
             res.json({success: true, items: searchResults})
             return
         }
@@ -25,7 +25,7 @@ class SearchChannelController {
     async getChannelDetails(req, res){
         // Used stored json data instead of loading from youtube
         if (process.env.ENV_TYPE === 'offline') {
-            const searchResults = require('../searchChannel.json')
+            const searchResults = require('../offline-data/searchChannel.json')
             res.json({...searchResults, success: true})
             return
         }

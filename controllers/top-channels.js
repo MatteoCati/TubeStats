@@ -1,4 +1,4 @@
-const topChannelsList = require('../topChannels.json')
+const topChannelsList = require('../offline-data/topChannels.json')
 
 class TopChannelsController {
     constructor(topChannelsService){

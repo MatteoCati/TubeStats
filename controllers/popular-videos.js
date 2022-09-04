@@ -1,6 +1,6 @@
-const popularVideosList = require("../popularVideos.json");
+const popularVideosList = require("../offline-data/popularVideos.json");
 
-const countryList = require('../countryCode.json')
+const countryList = require('../offline-data/countryCode.json')
 
 class PopularVideosController {
 
